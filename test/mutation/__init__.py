@@ -1,0 +1,15 @@
+from test_AsciiExpert import Test_AsciiExpert
+from test_Base64_input_only import Test_Base64_input_only
+from test_Base64_raw import Test_Base64_raw
+from test_Base64 import Test_Base64
+from test_CaesarExpert import Test_CaesarExpert
+from test_Combination_1 import Combination_1
+from test_Combination_2 import Combination_2
+from test_Combination_3 import Combination_3
+from test_Disemvowel import Test_Disemvowel
+from test_Leetspeak import Test_Leetspeak
+from test_MorseExpert import Test_MorseExpert
+from test_Rot13 import Test_Rot13
+from test_SelfDefineCipher import Test_SelfDefineCipher
+
+

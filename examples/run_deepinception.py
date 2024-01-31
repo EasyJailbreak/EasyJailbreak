@@ -1,0 +1,35 @@
+import os, sys
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from easyjailbreak.datasets import JailbreakDataset
+from easyjailbreak.attacker.DeepInception_Li_2023 import *
+from easyjailbreak.models.openai_model import OpenaiModel
+from easyjailbreak.models.huggingface_model import HuggingfaceModel
+sys.path.append(os.getcwd())
+
+generation_config = {'max_new_tokens':100}
+llama_model_path = 'meta-llama/Llama-2-7b-chat-hf'
+model_name = 'meta-llama/Llama-2-7b-chat-hf'
+model =  AutoModelForCausalLM.from_pretrained(llama_model_path)
+tokenizers = AutoTokenizer.from_pretrained(llama_model_path)
+llama2_7b_chat = HuggingfaceModel(model = model,tokenizer=tokenizers, model_name= model_name,generation_config=generation_config)
+
+chat_name = 'GPT-4'
+api_key = 'your key'
+GPT4 = OpenaiModel(model_name= chat_name,api_keys=api_key)
+
+
+dataset_name = 'AdvBench'
+num_attack = 1
+dataset = JailbreakDataset(dataset_name)
+dataset._dataset = dataset._dataset[:num_attack]
+
+attacker = DeepInception(attack_model=None,
+                         target_model=GPT4,
+                         eval_model=GPT4,
+                         Jailbreak_Dataset=dataset,
+                         scene='dream',
+                         character_number=5,
+                         layer_number=5)
+attacker.attack()
+attacker.log()
+attacker.attack_results.save_to_jsonl('AdvBench_deepinception.jsonl')
