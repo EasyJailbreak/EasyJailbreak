@@ -61,7 +61,21 @@ This project is mainly divided into three parts.
 <p align="center"><img src="image/README/project_structure.png" alt="Project Structure" height="300"></p>
 
 The following table shows the 4 essential components (i.e. **Selectors**, **Mutators**, **Filters**, **Evaluators**) used by each recipe implemented in our project:
-<p align="center"><img src="image/README/recipes_4_components_usage.jpg" alt="Recipes using 4 components" height="600"></p>
+
+
+| <font face="Arial Black" size="4">Attack<br>Recipes</font> | <font face="Arial Black" size="4">Selector</font> | <font face="Arial Black" size="4">Mutation</font> | <font face="Arial Black" size="4">Constraint</font>| <font face="Arial Black" size="4">Evaluator</font>|
+| :----------------------: | :---------------: | :----------------: | :--------------: |:-------------: |
+| <font face="Arial Black">ReNeLLM</font>| N/A|ChangeStyle<br>InsertMeaninglessCharacters<br>MisspellSensitiveWords<br>Rephrase<br>GenerateSimilar<br>AlterSentenceStructure | DeleteHarmLess | Evaluator_GenerativeJudge |
+| <font face="Arial Black">GPTFuzz</font>| MCTSExploreSelectPolicy<br>RandomSelector<br>EXP3SelectPolicy<br>RoundRobinSelectPolicy<br>UCBSelectPolicy | ChangeStyle<br>Expand<br>Rephrase<br>Crossover<br>Translation<br>Shorten| N/A| Evaluator_ClassificationJudge |
+| <font face="Arial Black">ICA</font> | N/A| N/A| N/A| Evaluator_PatternJudge|
+| <font face="Arial Black">AutoDAN</font>| N/A| Rephrase<br>CrossOver<br>ReplaceWordsWithSynonyms| N/A| Evaluator_PatternJudge|
+| <font face="Arial Black">PAIR</font> | N/A| HistoricalInsight| N/A| N/A |
+| <font face="Arial Black">JailBroken</font> | N/A| Artificial<br>Auto_obfuscation<br>Auto_payload_splitting<br>Base64_input_only<br>Base64_raw<br>Base64<br>Combination_1<br>Combination_2<br>Combination_3<br>Disemovowel<br>Leetspeak<br>Rot13 | N/A| Evaluator_GenerativeJudge |
+| <font face="Arial Black">Cipher</font> | N/A| AsciiExpert<br>CaserExpert<br>MorseExpert<br>SelfDefineCipher | N/A| Evaluator_GenerativeJudge |
+| <font face="Arial Black">DeepInception</font>| N/A| Inception| N/A| Evaluator_GenerativeJudge |
+| <font face="Arial Black">MultiLingual</font> | N/A| Translate| N/A| Evaluator_GenerativeJudge |
+| <font face="Arial Black">GCG</font> | ReferenceLossSelector| MutationTokenGradient| N/A| Evaluator_PrefixExactMatch|
+| <font face="Arial Black">TAP</font>| SelectBasedOnScores| IntrospectGeneration | DeleteOffTopic | Evaluator_GenerativeGetScore|
 
 ## Usage
 
