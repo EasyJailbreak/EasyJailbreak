@@ -1,7 +1,7 @@
 <h1 align="center"><img src="image/README/logo.png" alt="EasyJailbreak Logo" height="60"></h1>
 
 <p align="center"><font face="Lucida Sans"><em>—— An easy-to-use Python framework to generate adversarial jailbreak prompts by assembling different methods</em></font><br><br> 
-  <a href="https://easyjailbreak.github.io/document">EasyJailbreak Documentation</a><br><br>
+  <a href="https://easyjailbreak.github.io/EasyJailbreakDoc.github.io/">EasyJailbreak Documentation</a><br><br>
 <a href="https://www.EasyJailbreak.io/EasyJailbreak">
   	<img alt="Website" src="https://img.shields.io/website?up_message=online&url=https%3A%2F%2FeasyJailbreak.github.io%2F" height="18">
   </a>
@@ -27,7 +27,7 @@
 
 **What is EasyJailbreak?**
 
-EasyJailbreak is an *easy-to-use* Python framework designed for researchers and developers focusing on LLM security. Specifically,  EasyJailbreak decomposes the mainstream jailbreaking process into several iterable steps: initialize **mutation seeds**, **select suitable seeds**, **add constraint**, **mutate**, **attack**, and **evaluate**. On this basis, EasyJailbreak provides a component for each step, constructing a playground for further research and attempts. More details can be found in our paper. TODO: paper link should be filled.
+EasyJailbreak is an *easy-to-use* Python framework designed for researchers and developers focusing on LLM security. Specifically,  EasyJailbreak decomposes the mainstream jailbreaking process into several iterable steps: initialize **mutation seeds**, **select suitable seeds**, **add constraint**, **mutate**, **attack**, and **evaluate**. On this basis, EasyJailbreak provides a component for each step, constructing a playground for further research and attempts. More details can be found in our paper. 
 
 ## Setup
 
@@ -62,7 +62,6 @@ This project is mainly divided into three parts.
 
 The following table shows the 4 essential components (i.e. **Selectors**, **Mutators**, **Filters**, **Evaluators**) used by each recipe implemented in our project:
 
-
 | <font face="Arial Black" size="4">Attack<br>Recipes</font> | <font face="Arial Black" size="4">Selector</font> | <font face="Arial Black" size="4">Mutation</font> | <font face="Arial Black" size="4">Constraint</font>| <font face="Arial Black" size="4">Evaluator</font>|
 | :----------------------: | :---------------: | :----------------: | :--------------: |:-------------: |
 | <font face="Arial Black"><b>ReNeLLM</b></font>| N/A|ChangeStyle<br>InsertMeaninglessCharacters<br>MisspellSensitiveWords<br>Rephrase<br>GenerateSimilar<br>AlterSentenceStructure | DeleteHarmLess | Evaluator_GenerativeJudge |
@@ -76,6 +75,7 @@ The following table shows the 4 essential components (i.e. **Selectors**, **Muta
 | <font face="Arial Black"><b>MultiLingual</b></font> | N/A| Translate| N/A| Evaluator_GenerativeJudge |
 | <font face="Arial Black"><b>GCG</b></font> | ReferenceLossSelector| MutationTokenGradient| N/A| Evaluator_PrefixExactMatch|
 | <font face="Arial Black"><b>TAP</b></font>| SelectBasedOnScores| IntrospectGeneration | DeleteOffTopic | Evaluator_GenerativeGetScore|
+
 
 ## Usage
 
@@ -112,7 +112,7 @@ attacker = PAIR(attack_model=attack_model,
 attacker.attack(save_path='vicuna-13b-v1.5_llama-2-7b-chat_gpt4_AdvBench_result.jsonl')
 ```
 
-All available recipes and their relevant information can be found in the [documentation](https://easyjailbreak.github.io/document).(TODO: link haven't been filled yet)
+All available recipes and their relevant information can be found in the [documentation](https://easyjailbreak.github.io/EasyJailbreakDoc.github.io/).
 
 ### DIY Your Attacker
 
@@ -155,7 +155,7 @@ seeder.new_seeds()
 
 #### 3. Instantiate Components
 
- As mentioned in [Project Structure](#project-structure), the second part consists of 4 major components (modules, i.e. selector, mutator, filter, evaluator) and you need to instantiate them when you DIY your attack method. All available **Selectors**, **Mutators**, **Filter**, **Evaluators** and their details can be found in the [documentation](https://easyjailbreak.github.io/document).(TODO: link haven't been filled yet)
+ As mentioned in [Project Structure](#project-structure), the second part consists of 4 major components (modules, i.e. selector, mutator, filter, evaluator) and you need to instantiate them when you DIY your attack method. All available **Selectors**, **Mutators**, **Filter**, **Evaluators** and their details can be found in the [documentation](https://easyjailbreak.github.io/EasyJailbreakDoc.github.io/).
 
 You can `import` the module you want by using `from easyjailbreak.module_name.method_name import method_name`, here is a brief instruction for you to start (the `method_name` is what you choose as the method in the corresponding module):
 
