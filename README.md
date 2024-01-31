@@ -63,18 +63,18 @@ This project is mainly divided into three parts.
 The following table shows the 4 essential components (i.e. **Selectors**, **Mutators**, **Filters**, **Evaluators**) used by each recipe implemented in our project:
 
 | <font face="Arial Black" size="4">Attack<br>Recipes</font> | <font face="Arial Black" size="4">Selector</font> | <font face="Arial Black" size="4">Mutation</font> | <font face="Arial Black" size="4">Constraint</font>| <font face="Arial Black" size="4">Evaluator</font>|
-| :----------------------: | :---------------: | :----------------: | :--------------: |:-------------: |
-| <font face="Arial Black"><b>ReNeLLM</b></font>| N/A|ChangeStyle<br>InsertMeaninglessCharacters<br>MisspellSensitiveWords<br>Rephrase<br>GenerateSimilar<br>AlterSentenceStructure | DeleteHarmLess | Evaluator_GenerativeJudge |
-| <font face="Arial Black"><b>GPTFuzz</b></font>| MCTSExploreSelectPolicy<br>RandomSelector<br>EXP3SelectPolicy<br>RoundRobinSelectPolicy<br>UCBSelectPolicy | ChangeStyle<br>Expand<br>Rephrase<br>Crossover<br>Translation<br>Shorten| N/A| Evaluator_ClassificationJudge |
-| <font face="Arial Black"><b>ICA</b></font> | N/A| N/A| N/A| Evaluator_PatternJudge|
-| <font face="Arial Black"><b>AutoDAN</b></font>| N/A| Rephrase<br>CrossOver<br>ReplaceWordsWithSynonyms| N/A| Evaluator_PatternJudge|
-| <font face="Arial Black"><b>PAIR</b></font> | N/A| HistoricalInsight| N/A| N/A |
-| <font face="Arial Black"><b>JailBroken</b></font> | N/A| Artificial<br>Auto_obfuscation<br>Auto_payload_splitting<br>Base64_input_only<br>Base64_raw<br>Base64<br>Combination_1<br>Combination_2<br>Combination_3<br>Disemovowel<br>Leetspeak<br>Rot13 | N/A| Evaluator_GenerativeJudge |
-| <font face="Arial Black"><b>Cipher</b></font> | N/A| AsciiExpert<br>CaserExpert<br>MorseExpert<br>SelfDefineCipher | N/A| Evaluator_GenerativeJudge |
-| <font face="Arial Black"><b>DeepInception</b></font>| N/A| Inception| N/A| Evaluator_GenerativeJudge |
-| <font face="Arial Black"><b>MultiLingual</b></font> | N/A| Translate| N/A| Evaluator_GenerativeJudge |
-| <font face="Arial Black"><b>GCG</b></font> | ReferenceLossSelector| MutationTokenGradient| N/A| Evaluator_PrefixExactMatch|
-| <font face="Arial Black"><b>TAP</b></font>| SelectBasedOnScores| IntrospectGeneration | DeleteOffTopic | Evaluator_GenerativeGetScore|
+| :---------------: | :---------------: | :----------------: | :--------------: |:-------------: |
+| <font face="Arial Black"><b>ReNeLLM</b></font>|<sub> N/A </sub>|ChangeStyle<br>InsertMeaninglessCharacters<br>MisspellSensitiveWords<br>Rephrase<br>GenerateSimilar<br>AlterSentenceStructure | DeleteHarmLess | Evaluator_GenerativeJudge |
+| <font face="Arial Black"><b>GPTFuzz</b></font>| <sub>MCTSExploreSelectPolicy<br>RandomSelector<br>EXP3SelectPolicy<br>RoundRobinSelectPolicy<br>UCBSelectPolicy | ChangeStyle<br>Expand<br>Rephrase<br>Crossover<br>Translation<br>Shorten| N/A| Evaluator_ClassificationJudge </sub>|
+| <font face="Arial Black"><b>ICA</b></font> |<sub> N/A| N/A| N/A| Evaluator_PatternJudge</sub>|
+| <font face="Arial Black"><b>AutoDAN</b></font>|<sub> N/A| Rephrase<br>CrossOver<br>ReplaceWordsWithSynonyms| N/A| Evaluator_PatternJudge</sub>|
+| <font face="Arial Black"><b>PAIR</b></font> |<sub> N/A| HistoricalInsight| N/A| N/A </sub>|
+| <font face="Arial Black"><b>JailBroken</b></font> | <sub>N/A| Artificial<br>Auto_obfuscation<br>Auto_payload_splitting<br>Base64_input_only<br>Base64_raw<br>Base64<br>Combination_1<br>Combination_2<br>Combination_3<br>Disemovowel<br>Leetspeak<br>Rot13 | N/A| Evaluator_GenerativeJudge</sub> |
+| <font face="Arial Black"><b>Cipher</b></font> | <sub>N/A| AsciiExpert<br>CaserExpert<br>MorseExpert<br>SelfDefineCipher | N/A| Evaluator_GenerativeJudge </sub>|
+| <font face="Arial Black"><b>DeepInception</b></font>|<sub> N/A| Inception| N/A| Evaluator_GenerativeJudge </sub>|
+| <font face="Arial Black"><b>MultiLingual</b></font> |<sub>N/A| Translate| N/A| Evaluator_GenerativeJudge </sub>|
+| <font face="Arial Black"><b>GCG</b></font> |<sub> ReferenceLossSelector| MutationTokenGradient| N/A| Evaluator_PrefixExactMatch</sub>|
+| <font face="Arial Black"><b>TAP</b></font>|<sub>SelectBasedOnScores| IntrospectGeneration | DeleteOffTopic | Evaluator_GenerativeGetScore</sub>|
 
 
 ## Usage
