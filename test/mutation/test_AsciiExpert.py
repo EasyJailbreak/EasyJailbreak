@@ -3,7 +3,9 @@ from easyjailbreak.mutation.rule import AsciiExpert
 from easyjailbreak.datasets import Instance, JailbreakDataset
 
 class Test_AsciiExpert(unittest.TestCase):
-    
+    r"""
+    This class is a unittest class for AsciiExpert.
+    """
     def test_instance(self):
         instance1 = Instance(query='test')
         mutation = AsciiExpert(attr_name='query')

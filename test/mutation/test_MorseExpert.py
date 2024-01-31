@@ -4,7 +4,7 @@ from easyjailbreak.datasets import Instance, JailbreakDataset
 
 class Test_MorseExpert(unittest.TestCase):
     """
-    Test MorseExpert
+    This class is a unittest for MorseExpert.
     """
     def test_instance(self):
         # inital instance and mutation

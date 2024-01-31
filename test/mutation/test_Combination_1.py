@@ -1,12 +1,10 @@
-import sys
-sys.path.append('c:\\Users\\86185\\Desktop\\Jailbroken\\EasyJailbreak')
 import unittest
 from easyjailbreak.mutation.rule import Combination_1
 from easyjailbreak.datasets import Instance, JailbreakDataset
 
 class Test_Combination_1(unittest.TestCase):
     """
-    Test Combination_1 mutation.
+    This class is a unittest for Combination_1.
     """
     def test_instance(self):
         # inital instance

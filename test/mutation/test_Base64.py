@@ -1,12 +1,10 @@
-import sys
-sys.path.append('c:\\Users\\86185\\Desktop\\Jailbroken\\EasyJailbreak')
 import unittest
 from easyjailbreak.mutation.rule import Base64
 from easyjailbreak.datasets import Instance, JailbreakDataset
 
 class Test_Base64(unittest.TestCase):
     """
-    Test Base64 mutation.
+    This class is a unittest for Base64.
     """
     def test_instance(self):
         # inital instance
