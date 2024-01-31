@@ -26,9 +26,13 @@ setup(
     ],
     python_requires=">=3.9",
     keywords=['large language model', 
-              'red team', 
-              'security', 
-              'natural language processing'],
+              'llm security', 
+              'natural language processing',
+              'adversarial jailbreaking',
+              'adversarial attack framework',
+              'prompt engineering',
+              'discrete optimization'
+             ],
     license='GNU General Public License v3.0',
     classifiers=[
         "Development Status :: 3 - Alpha",
