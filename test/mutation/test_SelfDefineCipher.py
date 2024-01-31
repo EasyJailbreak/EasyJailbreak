@@ -1,15 +1,13 @@
-import sys
-sys.path.append('c:\\Users\\86185\\Desktop\\Jailbroken\\EasyJailbreak')
 import unittest
 from easyjailbreak.mutation.rule import SelfDefineCipher
 from easyjailbreak.datasets import Instance, JailbreakDataset
 
 class Test_SelfDefineCipher(unittest.TestCase):
     """
-    Test SelfDefineCipher mutation.
+    This class is a unittest for SelfDefineCipher.
     """
     def test_instance(self):
-        # inital instance nsf mutation
+        # inital instance mutation
         instance1 = Instance(query='test')
         mutation = SelfDefineCipher(attr_name='query')
 

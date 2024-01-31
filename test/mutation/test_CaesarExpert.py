@@ -1,12 +1,10 @@
-import sys
-sys.path.append('c:\\Users\\86185\\Desktop\\Jailbroken\\EasyJailbreak')
 import unittest
 from easyjailbreak.mutation.rule import CaesarExpert
 from easyjailbreak.datasets import Instance, JailbreakDataset
 
 class Test_CaesarExpert(unittest.TestCase):
     """
-    Test CaesarExpert
+    This class is a unittest for CaesarExpert.
     """
     def test_instance(self):
         instance1 = Instance(query='test')

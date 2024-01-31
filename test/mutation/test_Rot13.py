@@ -1,12 +1,10 @@
-import sys
-sys.path.append('c:\\Users\\86185\\Desktop\\Jailbroken\\EasyJailbreak')
 import unittest
 from easyjailbreak.mutation.rule import Rot13
 from easyjailbreak.datasets import Instance, JailbreakDataset
 
 class TestRot13(unittest.TestCase):
     """
-    Test Rot13 mutation.
+    This class is a unittest for Rot13.
     """
     def test_instance(self):
         # inital instance

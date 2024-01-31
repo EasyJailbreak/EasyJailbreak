@@ -1,18 +1,17 @@
-import sys
-sys.path.append('c:\\Users\\86185\\Desktop\\Jailbroken\\EasyJailbreak')
 import unittest
 from easyjailbreak.mutation.rule import Disemvowel
 from easyjailbreak.datasets import Instance, JailbreakDataset
 
 class Test_Disemvowel(unittest.TestCase):
     """
-    Test Disemvowel mutation.
+    This class is a unittest for Disemvowel.
     """
     def test_instance(self):
         # inital instance
         instance1 = Instance(query='test')
         # inital mutation
         mutation = Disemvowel(attr_name='query')
+        
         # execute mutation
         jailbreakdataset_single = JailbreakDataset([instance1])
         mutated_instances = mutation(jailbreakdataset_single)
