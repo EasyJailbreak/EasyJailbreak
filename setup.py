@@ -27,6 +27,7 @@ setup(
     python_requires=">=3.9",
     keywords=['large language model', 
               'llm security', 
+              'llm safety benchmark',
               'natural language processing',
               'adversarial jailbreaking',
               'adversarial attack framework',
