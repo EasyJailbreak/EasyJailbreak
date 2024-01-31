@@ -7,7 +7,7 @@ class Test_SelfDefineCipher(unittest.TestCase):
     This class is a unittest for SelfDefineCipher.
     """
     def test_instance(self):
-        # inital instance nsf mutation
+        # inital instance mutation
         instance1 = Instance(query='test')
         mutation = SelfDefineCipher(attr_name='query')
 
