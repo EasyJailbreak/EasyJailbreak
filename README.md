@@ -1,4 +1,4 @@
-<h1 align="center"><font face="Arial Black">EasyJailbreak </font><img src="image/README/logo.png" alt="EasyJailbreak Logo" height="40"></h1>
+<h1 align="center"><img src="image/README/logo.png" alt="EasyJailbreak Logo" height="60"></h1>
 
 <p align="center"><font face="Lucida Sans"><em>—— An easy-to-use Python framework to generate adversarial jailbreak prompts by assembling different methods</em></font><br><br> 
   <a href="https://easyjailbreak.github.io/document">EasyJailbreak Documentation</a><br><br>
