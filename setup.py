@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="easyjailbreak",
-    version="0.1.0",
+    version="0.1.1",
     description="Easy Jailbreak toolkit",
     author="ZenithX",
     author_email="waltersumbon@gmail.com",
