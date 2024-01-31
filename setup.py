@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="easyjailbreak",
-    version="0.1.0",
+    version="0.1.1",
     description="Easy Jailbreak toolkit",
     author="ZenithX",
     author_email="waltersumbon@gmail.com",
@@ -26,9 +26,14 @@ setup(
     ],
     python_requires=">=3.9",
     keywords=['large language model', 
-              'red team', 
-              'security', 
-              'natural language processing'],
+              'llm security', 
+              'llm safety benchmark',
+              'natural language processing',
+              'adversarial jailbreaking',
+              'adversarial attack framework',
+              'prompt engineering',
+              'discrete optimization'
+             ],
     license='GNU General Public License v3.0',
     classifiers=[
         "Development Status :: 3 - Alpha",

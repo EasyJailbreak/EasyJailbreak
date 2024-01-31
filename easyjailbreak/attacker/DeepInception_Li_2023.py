@@ -12,7 +12,6 @@ Source repository:  https://github.com/tmlr-group/DeepInception
 import logging
 logging.basicConfig(level=logging.INFO)
 from easyjailbreak.metrics.Evaluator import EvaluatorGenerativeJudge
-from easyjailbreak.seed import SeedTemplate
 from easyjailbreak.attacker import AttackerBase
 from easyjailbreak.datasets import JailbreakDataset, Instance
 from easyjailbreak.mutation.rule import Inception
