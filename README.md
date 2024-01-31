@@ -1,7 +1,7 @@
 <h1 align="center"><font face="Arial Black">EasyJailbreak </font><img src="image/README/logo.png" alt="EasyJailbreak Logo" height="40"></h1>
 
 <p align="center"><font face="Lucida Sans"><em>—— An easy-to-use Python framework to generate adversarial jailbreak prompts by assembling different methods</em></font><br><br> 
-  <a href="https://easyjailbreak.github.io/document">EasyJailbreak Documentation</a><br><br>
+  <a href="https://easyjailbreak.github.io">EasyJailbreak Documentation</a><br><br>
 <a href="https://www.EasyJailbreak.io/EasyJailbreak">
   	<img alt="Website" src="https://img.shields.io/website?up_message=online&url=https%3A%2F%2FeasyJailbreak.github.io%2F" height="18">
   </a>
@@ -62,20 +62,19 @@ This project is mainly divided into three parts.
 
 The following table shows the 4 essential components (i.e. **Selectors**, **Mutators**, **Filters**, **Evaluators**) used by each recipe implemented in our project:
 
-
-| <font face="Arial Black" size="4">Attack<br>Recipes</font> | <font face="Arial Black" size="4">Selector</font> | <font face="Arial Black" size="4">Mutation</font> | <font face="Arial Black" size="4">Constraint</font>| <font face="Arial Black" size="4">Evaluator</font>|
-| :----------------------: | :---------------: | :----------------: | :--------------: |:-------------: |
-| <font face="Arial Black">ReNeLLM</font>| N/A|ChangeStyle<br>InsertMeaninglessCharacters<br>MisspellSensitiveWords<br>Rephrase<br>GenerateSimilar<br>AlterSentenceStructure | DeleteHarmLess | Evaluator_GenerativeJudge |
-| <font face="Arial Black">GPTFuzz</font>| MCTSExploreSelectPolicy<br>RandomSelector<br>EXP3SelectPolicy<br>RoundRobinSelectPolicy<br>UCBSelectPolicy | ChangeStyle<br>Expand<br>Rephrase<br>Crossover<br>Translation<br>Shorten| N/A| Evaluator_ClassificationJudge |
-| <font face="Arial Black">ICA</font> | N/A| N/A| N/A| Evaluator_PatternJudge|
-| <font face="Arial Black">AutoDAN</font>| N/A| Rephrase<br>CrossOver<br>ReplaceWordsWithSynonyms| N/A| Evaluator_PatternJudge|
-| <font face="Arial Black">PAIR</font> | N/A| HistoricalInsight| N/A| N/A |
-| <font face="Arial Black">JailBroken</font> | N/A| Artificial<br>Auto_obfuscation<br>Auto_payload_splitting<br>Base64_input_only<br>Base64_raw<br>Base64<br>Combination_1<br>Combination_2<br>Combination_3<br>Disemovowel<br>Leetspeak<br>Rot13 | N/A| Evaluator_GenerativeJudge |
-| <font face="Arial Black">Cipher</font> | N/A| AsciiExpert<br>CaserExpert<br>MorseExpert<br>SelfDefineCipher | N/A| Evaluator_GenerativeJudge |
-| <font face="Arial Black">DeepInception</font>| N/A| Inception| N/A| Evaluator_GenerativeJudge |
-| <font face="Arial Black">MultiLingual</font> | N/A| Translate| N/A| Evaluator_GenerativeJudge |
-| <font face="Arial Black">GCG</font> | ReferenceLossSelector| MutationTokenGradient| N/A| Evaluator_PrefixExactMatch|
-| <font face="Arial Black">TAP</font>| SelectBasedOnScores| IntrospectGeneration | DeleteOffTopic | Evaluator_GenerativeGetScore|
+| `<font face="Arial Black" size="4">`Attack`<br>`Recipes`</font>` |                                 `<font face="Arial Black" size="4">`Selector`</font>`                                 |                                                                                         `<font face="Arial Black" size="4">`Mutation`</font>`                                                                                         | `<font face="Arial Black" size="4">`Constraint`</font>` | `<font face="Arial Black" size="4">`Evaluator`</font>` |
+| :--------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------: | :--------------------------------------------------------: |
+|            `<font face="Arial Black">`ReNeLLM`</font>`            |                                                            N/A                                                            |                                             ChangeStyle`<br>`InsertMeaninglessCharacters`<br>`MisspellSensitiveWords`<br>`Rephrase`<br>`GenerateSimilar`<br>`AlterSentenceStructure                                             |                       DeleteHarmLess                       |                 Evaluator_GenerativeJudge                 |
+|            `<font face="Arial Black">`GPTFuzz`</font>`            | MCTSExploreSelectPolicy`<br>`RandomSelector`<br>`EXP3SelectPolicy`<br>`RoundRobinSelectPolicy`<br>`UCBSelectPolicy |                                                                       ChangeStyle`<br>`Expand`<br>`Rephrase`<br>`Crossover`<br>`Translation`<br>`Shorten                                                                       |                             N/A                             |               Evaluator_ClassificationJudge               |
+|              `<font face="Arial Black">`ICA`</font>`              |                                                            N/A                                                            |                                                                                                                    N/A                                                                                                                    |                             N/A                             |                   Evaluator_PatternJudge                   |
+|            `<font face="Arial Black">`AutoDAN`</font>`            |                                                            N/A                                                            |                                                                                         Rephrase`<br>`CrossOver`<br>`ReplaceWordsWithSynonyms                                                                                         |                             N/A                             |                   Evaluator_PatternJudge                   |
+|              `<font face="Arial Black">`PAIR`</font>`              |                                                            N/A                                                            |                                                                                                             HistoricalInsight                                                                                                             |                             N/A                             |                            N/A                            |
+|           `<font face="Arial Black">`JailBroken`</font>`           |                                                            N/A                                                            | Artificial`<br>`Auto_obfuscation`<br>`Auto_payload_splitting`<br>`Base64_input_only`<br>`Base64_raw`<br>`Base64`<br>`Combination_1`<br>`Combination_2`<br>`Combination_3`<br>`Disemovowel`<br>`Leetspeak`<br>`Rot13 |                             N/A                             |                 Evaluator_GenerativeJudge                 |
+|             `<font face="Arial Black">`Cipher`</font>`             |                                                            N/A                                                            |                                                                                 AsciiExpert`<br>`CaserExpert`<br>`MorseExpert`<br>`SelfDefineCipher                                                                                 |                             N/A                             |                 Evaluator_GenerativeJudge                 |
+|         `<font face="Arial Black">`DeepInception`</font>`         |                                                            N/A                                                            |                                                                                                                 Inception                                                                                                                 |                             N/A                             |                 Evaluator_GenerativeJudge                 |
+|          `<font face="Arial Black">`MultiLingual`</font>`          |                                                            N/A                                                            |                                                                                                                 Translate                                                                                                                 |                             N/A                             |                 Evaluator_GenerativeJudge                 |
+|              `<font face="Arial Black">`GCG`</font>`              |                                                   ReferenceLossSelector                                                   |                                                                                                           MutationTokenGradient                                                                                                           |                             N/A                             |                 Evaluator_PrefixExactMatch                 |
+|              `<font face="Arial Black">`TAP`</font>`              |                                                    SelectBasedOnScores                                                    |                                                                                                           IntrospectGeneration                                                                                                           |                       DeleteOffTopic                       |                Evaluator_GenerativeGetScore                |
 
 ## Usage
 
@@ -112,7 +111,7 @@ attacker = PAIR(attack_model=attack_model,
 attacker.attack(save_path='vicuna-13b-v1.5_llama-2-7b-chat_gpt4_AdvBench_result.jsonl')
 ```
 
-All available recipes and their relevant information can be found in the [documentation](https://easyjailbreak.github.io/document).(TODO: link haven't been filled yet)
+All available recipes and their relevant information can be found in the [documentation](https://easyjailbreak.github.io).(TODO: link haven't been filled yet)
 
 ### DIY Your Attacker
 
@@ -155,7 +154,7 @@ seeder.new_seeds()
 
 #### 3. Instantiate Components
 
- As mentioned in [Project Structure](#project-structure), the second part consists of 4 major components (modules, i.e. selector, mutator, filter, evaluator) and you need to instantiate them when you DIY your attack method. All available **Selectors**, **Mutators**, **Filter**, **Evaluators** and their details can be found in the [documentation](https://easyjailbreak.github.io/document).(TODO: link haven't been filled yet)
+ As mentioned in [Project Structure](#project-structure), the second part consists of 4 major components (modules, i.e. selector, mutator, filter, evaluator) and you need to instantiate them when you DIY your attack method. All available **Selectors**, **Mutators**, **Filter**, **Evaluators** and their details can be found in the [documentation](https://easyjailbreak.github.io).(TODO: link haven't been filled yet)
 
 You can `import` the module you want by using `from easyjailbreak.module_name.method_name import method_name`, here is a brief instruction for you to start (the `method_name` is what you choose as the method in the corresponding module):
 
