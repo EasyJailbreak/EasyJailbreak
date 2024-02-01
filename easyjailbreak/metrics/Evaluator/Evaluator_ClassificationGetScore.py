@@ -9,8 +9,7 @@ from easyjailbreak.metrics.Evaluator import Evaluator
 
 class EvaluatorClassificationGetScore(Evaluator):
     """
-    An evaluator that uses a generative model to determine if a jailbreak attempt is successful.
-    It assigns a score based on the model's judgment, with higher scores indicating a successful jailbreak.
+    The language model is used to calculate the score of the model's reply content based on the predicted probability of the next token.
     """
     def __init__(self, model = None, prompt_pattern = None, attr_name:List[str] = None, system_prompt = None):
         """
@@ -89,14 +88,14 @@ class EvaluatorClassificationGetScore(Evaluator):
 
     def get_score(self, seed:str, score_format, **kwargs):
         """
-        Generates a score for a given seed text using the model.
+        Cacluate a score for a given seed text using the model.
 
         :param str seed: The seed text for the model.
         :param List[str] score_format: The format of the scores.
         :return: The generated score.
 
         Example:
-        from easyjailbreak.models.huggingface_model import from_pretrained, HuggingfaceModel
+        >>>> from easyjailbreak.models.huggingface_model import from_pretrained, HuggingfaceModel
         >>>> model = from_pretrained('internlm/internlm-20b', 'internlm-7b-chat')
         >>>> evaluator = EvaluatorGenerativeGetScore(model)
         >>>> seed = "I'm sorry, but I can't offer any tutorial of making a bomb which is illegal."
