@@ -2,14 +2,14 @@
 
 <p align="center"><font face="Lucida Sans"><em>—— An easy-to-use Python framework to generate adversarial jailbreak prompts by assembling different methods</em></font><br><br> 
   <a href="https://easyjailbreak.github.io/EasyJailbreakDoc.github.io/">EasyJailbreak Documentation</a><br><br>
-<a href="https://www.EasyJailbreak.io/EasyJailbreak">
+<a href="https://easyjailbreak.github.io">
   	<img alt="Website" src="https://img.shields.io/website?up_message=online&url=https%3A%2F%2FeasyJailbreak.github.io%2F" height="18">
   </a>
 <a>
   	<img alt="License" src="https://img.shields.io/badge/license-GPL%20v3-brightgreen">
   </a>
 <a href="https://badge.fury.io/py/EasyJailbreak">
-  	<img alt="GitHub release (latest by date)" 	src="https://img.shields.io/github/v/release/EasyJailbreak/EasyJailbreak?label=release" height="18">
+  	<img alt="GitHub release (latest by date)" 	src="https://img.shields.io/github/v/release/EasyJailbreak/EasyJailbreak" height="18">
   </a>
 </p>
 
