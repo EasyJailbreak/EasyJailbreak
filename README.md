@@ -36,7 +36,7 @@ There are two methods to install EasyJailbreak.
 1. For users who only require the approaches (or [recipes](#using-recipe)) collected in EasyJailbreak, execute the following command:
 
 ```shell
-pip install EasyJailbreak
+pip install easyjailbreak
 ```
 
 2. For users interested in [adding new components](#diy-your-attacker) (e.g., new mutate or evaluate methods), follow these steps:
