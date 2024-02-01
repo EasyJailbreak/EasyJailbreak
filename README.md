@@ -13,6 +13,8 @@
   </a>
 </p>
 
+<img src="image/README/terminal.gif>" alt="EasyJailbreak GIF" style="display: block; margin: 0 auto;" />
+
 ## Table of Contents
 
 - [About](#about)
