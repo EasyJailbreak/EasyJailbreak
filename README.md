@@ -9,7 +9,7 @@
   	<img alt="License" src="https://img.shields.io/badge/license-GPL%20v3-brightgreen" height="18">
   </a>
 <a href="https://badge.fury.io/py/EasyJailbreak">
-  	<img alt="GitHub release (latest by date)" 	src="https://img.shields.io/github/v/release/EasyJailbreak/EasyJailbreak" height="18">
+  	<img alt="GitHub release (latest by date)" 	src="https://img.shields.io/pypi/v/release/EasyJailbreak/EasyJailbreak" height="18">
   </a>
 </p>
 
