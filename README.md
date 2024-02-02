@@ -25,13 +25,13 @@
 
 ## About
 
-### Introduction
+### ✨ Introduction
 
 **What is EasyJailbreak?**
 
 EasyJailbreak is an *easy-to-use* Python framework designed for researchers and developers focusing on LLM security. Specifically,  EasyJailbreak decomposes the mainstream jailbreaking process into several iterable steps: initialize **mutation seeds**, **select suitable seeds**, **add constraint**, **mutate**, **attack**, and **evaluate**. On this basis, EasyJailbreak provides a component for each step, constructing a playground for further research and attempts. More details can be found in our paper. 
 
-## Setup
+## 🛠️ Setup
 
 There are two methods to install EasyJailbreak.
 
@@ -49,7 +49,7 @@ cd EasyJailbreak
 pip install -e .
 ```
 
-## Project Structure
+## 🔜 Project Structure
 
 This project is mainly divided into three parts.
 
@@ -79,7 +79,7 @@ The following table shows the 4 essential components (i.e. **Selectors**, **Muta
 | <font face="Arial Black"><b>TAP</b></font>|<sub>SelectBasedOnScores|<sub> IntrospectGeneration </sub>|<sub> DeleteOffTopic </sub>| <sub>Evaluator_GenerativeGetScore</sub>|
 
 
-## Usage
+## 💻 Usage
 
 ### Using Recipe
 
@@ -181,7 +181,7 @@ selector = RandomSelector(dataset)
 dataset = selector.select()
 ```
 
-## Citing EasyJailbreak
+## 🖊️ Citing EasyJailbreak
 
 ```bibtex
 @misc{2024easyjailbreak,
