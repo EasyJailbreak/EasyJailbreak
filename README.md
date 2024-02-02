@@ -49,7 +49,7 @@ cd EasyJailbreak
 pip install -e .
 ```
 
-## 🔜 Project Structure
+## 🔍 Project Structure
 
 This project is mainly divided into three parts.
 
