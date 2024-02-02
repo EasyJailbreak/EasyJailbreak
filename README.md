@@ -184,12 +184,11 @@ dataset = selector.select()
 ## Citing EasyJailbreak
 
 ```bibtex
-@inproceedings{TODO,
-  title={TODO},
-  author={TODO},
-  booktitle={TODO},
-  pages={TODO},
-  year={2023}
+@misc{2024easyjailbreak,
+    title={EasyJailbreak: A Unified Framework for Jailbreaking Large Language Models},
+    author={EasyJailbreak Contributors},
+    howpublished = {\url{https://github.com/EasyJailbreak/EasyJailbreak}},
+    year={2024}
 }
 
 ```
