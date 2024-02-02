@@ -89,7 +89,7 @@ class ReNeLLM(AttackerBase):
             else:
                 instance = filter_datasets[0]
 
-        scenario = self.selector.select().jailbreak_prompt
+        scenario = self.selector.select()[0].jailbreak_prompt
 
         new_instance = instance.copy()
         new_instance.parents.append(instance)

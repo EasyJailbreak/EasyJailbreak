@@ -28,7 +28,7 @@ class SelectPolicy(ABC):
             instance.index = k
 
     @abstractmethod
-    def select(self) -> Instance:
+    def select(self) -> JailbreakDataset:
         """
         Abstract method that must be implemented by subclasses to define the selection strategy.
 

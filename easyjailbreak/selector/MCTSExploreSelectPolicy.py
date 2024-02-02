@@ -35,7 +35,7 @@ class MCTSExploreSelectPolicy(SelectPolicy):
         self.beta = beta
 
 
-    def select(self) -> Instance:
+    def select(self) -> JailbreakDataset:
         """
         Selects an instance from the dataset using MCTS algorithm.
 
