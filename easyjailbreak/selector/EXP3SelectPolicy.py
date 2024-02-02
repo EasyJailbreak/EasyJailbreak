@@ -44,7 +44,7 @@ class EXP3SelectPolicy(SelectPolicy):
         self.weights = [1. for _ in range(len(self.Datasets))]
         self.probs = [0. for _ in range(len(self.Datasets))]
 
-    def select(self) -> Instance:
+    def select(self) -> JailbreakDataset:
         """
         Selects an instance from the dataset based on the EXP3 algorithm.
 

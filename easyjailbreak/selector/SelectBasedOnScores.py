@@ -26,7 +26,7 @@ class SelectBasedOnScores(SelectPolicy):
         """
         super().__init__(Dataset)
         self.tree_width = tree_width
-    def select(self, dataset:JailbreakDataset) -> List[Instance]:
+    def select(self, dataset:JailbreakDataset) -> JailbreakDataset:
         r"""
         Selects a subset of instances from the dataset based on their scores.
 
@@ -46,7 +46,7 @@ class SelectBasedOnScores(SelectPolicy):
             if len(truncated_list) == 0:
                 truncated_list = [list_dataset[0],list_dataset[1]]
 
-            return truncated_list
+            return JailbreakDataset(truncated_list)
         else:
             list_dataset = [instance for instance in self.Datasets]
             # Ensures that elements with the same score are randomly permuted
@@ -60,4 +60,4 @@ class SelectBasedOnScores(SelectPolicy):
             if len(truncated_list) == 0:
                 truncated_list = [list_dataset[0], list_dataset[1]]
 
-            return truncated_list
+            return JailbreakDataset(truncated_list)
