@@ -43,7 +43,7 @@ class ReNeLLM(AttackerBase):
             :param int evo_max: The maximum number of times for mutating a question
         """
         super().__init__(attack_model, target_model, eval_model, jailbreakDatasets)
-        for k,instance in enumerate(self.jailbreakDatasets):
+        for k,instance in enumerate(self.jailbreak_datasets):
             instance.index = k
         self.current_query: int = 0
         self.current_jailbreak: int = 0
@@ -105,10 +105,10 @@ class ReNeLLM(AttackerBase):
         Execute the attack process using provided prompts.
         """
         logging.info("Jailbreak started!")
-        assert len(self.jailbreakDatasets) > 0, "The jailbreakDatasets must be a non-empty JailbreakDataset object."
+        assert len(self.jailbreak_datasets) > 0, "The jailbreakDatasets must be a non-empty JailbreakDataset object."
         self.attack_results = JailbreakDataset([])
         try:
-            for instance in tqdm(self.jailbreakDatasets, desc="Processing instances"):
+            for instance in tqdm(self.jailbreak_datasets, desc="Processing instances"):
                 for time in range(self.evo_max):
                     logging.info(f"Processing instance {instance.index} for the {time} time.")
                     new_Instance = self.single_attack(instance)[0]

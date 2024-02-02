@@ -56,7 +56,7 @@ class MJP(AttackerBase):
         :param  int batch_num:  the number of attacking attempts when the prompt_type include 'MC', i.e. multichoice
         :param  str template_file:   file path of the seed_template.json
         """
-        super().__init__(attack_model=None, target_model=target_model, eval_model=eval_model, jailbreakDatasets=Dataset)
+        super().__init__(attack_model=None, target_model=target_model, eval_model=eval_model, jailbreak_datasets=Dataset)
         ############ 4大件 #################
         self.seeder=SeedTemplate().new_seeds(seeds_num=1,method_list=['MJP'],template_file=template_file)
         self.mutator=MJPChoices(prompt_type, self.target_model)

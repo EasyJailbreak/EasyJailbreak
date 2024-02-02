@@ -10,7 +10,7 @@ Source repository: https://github.com/RICommunity/TAP
 """
 import os
 import logging
-import tqdm
+from tqdm import tqdm
 
 from easyjailbreak.attacker import AttackerBase
 from easyjailbreak.datasets import JailbreakDataset
@@ -90,7 +90,7 @@ class TAP(AttackerBase):
         super().__init__(attack_model=attack_model,
                          target_model=target_model,
                          eval_model=eval_model,
-                         jailbreakDatasets=Dataset)
+                         jailbreak_datasets=Dataset)
         self.seeds=SeedTemplate().new_seeds(1,method_list=['TAP'],template_file=template_file)
 
         ####### 4 major components ##########
@@ -116,7 +116,6 @@ class TAP(AttackerBase):
         self.branching_factor = branching_factor
 
         ######## datasets and logger ############
-        self.Dataset: JailbreakDataset = Dataset
         self.jailbreak_Dataset = JailbreakDataset([])
         self.logger = Logger()
 
@@ -155,7 +154,7 @@ class TAP(AttackerBase):
         global target_model_calls
         logging.info("Jailbreak started!")
         try:
-            for Instance in tqdm(self.Dataset, desc="Processing instances"):
+            for Instance in tqdm(self.jailbreak_datasets, desc="Processing instances"):
                 new_Instance = self.single_attack(Instance)[0]
                 self.jailbreak_Dataset.add(new_Instance)
         except KeyboardInterrupt:
