@@ -11,6 +11,7 @@ import logging
 import re
 from easyjailbreak.datasets import Instance, JailbreakDataset
 from easyjailbreak.metrics.Evaluator import Evaluator
+from typing import List
 
 class EvaluatorGenerativeGetScore(Evaluator):
     def __init__(self, model, prompt_pattern=None, attr_name: List[str] = None, system_prompt = None,score_format=r'\[\[(\d+)\]\]'):
