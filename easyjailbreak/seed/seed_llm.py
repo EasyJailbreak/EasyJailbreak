@@ -40,7 +40,7 @@ class SeedLLM(SeedBase):
         kwargs.update({input_field_name: prompt})
         for _ in range(seeds_num):
             # only support partial whitebox models.
-            raw_output = self.model.generate(**kwargs)
-            seeds.append(self.model.decode(raw_output))
+            output = self.model.generate(**kwargs)
+            seeds.append(output)
         self.seeds = seeds
         return self.seeds
