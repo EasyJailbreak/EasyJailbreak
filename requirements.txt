@@ -9,5 +9,3 @@ pandas
 accelerate
 fschat
 jsonlines
-einops 
-transformers_stream_generator
