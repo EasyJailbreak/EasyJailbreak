@@ -44,7 +44,7 @@ pip install easyjailbreak
 2. For users interested in [adding new components](#diy-your-attacker) (e.g., new mutate or evaluate methods), follow these steps:
 
 ```shell
-git clone https://github.com/nitwtog/EasyJailbreak.git
+git clone https://github.com/EasyJailbreak/EasyJailbreak.git
 cd EasyJailbreak
 pip install -e .
 ```
