@@ -1,19 +1,20 @@
 <h1 align="center"><img src="image/README/logo.png" alt="EasyJailbreak Logo" height="60"></h1>
 
 <p align="center"><font face="Lucida Sans"><em>—— An easy-to-use Python framework to generate adversarial jailbreak prompts by assembling different methods</em></font><br><br> 
-  <a href="https://easyjailbreak.github.io/EasyJailbreakDoc.github.io/">EasyJailbreak Documentation</a><br><br>
-<a href="https://easyjailbreak.github.io">
-  	<img alt="Website" src="https://img.shields.io/website?up_message=online&url=https%3A%2F%2FeasyJailbreak.github.io%2F" height="18">
+  <a href="http://easyjailbreak.org/">EasyJailbreak Website</a><br><br>
+<a href="http://easyjailbreak.org/">
+  	<img alt="Website" src="https://img.shields.io/website?up_message=online&url=http%3A%2F%2Feasyjailbreak.org%2F" height="18">
   </a>
 <a>
   	<img alt="License" src="https://img.shields.io/badge/license-GPL%20v3-brightgreen" height="18">
   </a>
-<a href="https://badge.fury.io/py/EasyJailbreak">
-  	<img alt="GitHub release (latest by date)" 	src="https://img.shields.io/github/v/release/EasyJailbreak/EasyJailbreak" height="18">
+<a href="https://github.com/EasyJailbreak/EasyJailbreak/releases/tag/0.1.1">
+  	<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/EasyJailbreak/EasyJailbreak?label=release" height="18">
   </a>
 </p>
 
 <img src="image/README/terminal_demo.gif" alt="EasyJailbreak GIF" style="display: block; margin: 0 auto;" />
+
 
 ## Table of Contents
 
