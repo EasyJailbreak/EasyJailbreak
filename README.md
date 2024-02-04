@@ -221,7 +221,7 @@ response = model.generate(attack_query)
 ```bibtex
 @misc{2024easyjailbreak,
     title={EasyJailbreak: A Unified Framework for Jailbreaking Large Language Models},
-    author={EasyJailbreak Contributors},
+    author={Zhou, Weikang and Wang, Xiao and Xiong, Limao and Xia, Han and Gu, Yingshuang and Chai, Mingxu and Zhu, Fukang and Huang, Caishuang and Dou, Shihan and Xi, Zhiheng and Zheng, Rui and Gao, Songyang and Zou, Yicheng and Yan, Hang and Le, Yifan and Wang, Ruohui and Li, Lijun and Shao, Jing and Gui, Tao and Zhang, Qi and Huang, Xuanjing},
     howpublished = {\url{https://github.com/EasyJailbreak/EasyJailbreak}},
     year={2024}
 }
