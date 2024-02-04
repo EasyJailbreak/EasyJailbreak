@@ -9,6 +9,10 @@
   	<img alt="License" src="https://img.shields.io/badge/license-GPL%20v3-brightgreen" height="18">
   </a>
 
+  <a href="https://easyjailbreak.github.io/EasyJailbreakDoc.github.io">
+    <img alt="Read Docs" src="https://img.shields.io/static/v1?label=Read%20Docs&message=guide&color=blue" height="18">
+  </a>
+
 <a href="https://badge.fury.io/py/EasyJailbreak">
   <img alt="GitHub release (latest by date)" 	src="https://img.shields.io/github/v/release/EasyJailbreak/EasyJailbreak?label=release" height="18">
 </a>
@@ -32,6 +36,13 @@
 **What is EasyJailbreak?**
 
 EasyJailbreak is an *easy-to-use* Python framework designed for researchers and developers focusing on LLM security. Specifically,  EasyJailbreak decomposes the mainstream jailbreaking process into several iterable steps: initialize **mutation seeds**, **select suitable seeds**, **add constraint**, **mutate**, **attack**, and **evaluate**. On this basis, EasyJailbreak provides a component for each step, constructing a playground for further research and attempts. More details can be found in our paper. 
+
+### 📚 Resources
+
+- **[EasyJailbreak Website](http://easyjailbreak.org/):** Explore different LLMs' jailbreak results and view examples of jailbreaks. 
+
+- **[Documentation](https://easyjailbreak.github.io/EasyJailbreakDoc.github.io):** Detailed API documentation and parameter explanations.
+
 
 ## 🛠️ Setup
 
