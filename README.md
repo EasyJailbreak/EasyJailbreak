@@ -1,7 +1,6 @@
 <h1 align="center"><img src="image/README/logo.png" alt="EasyJailbreak Logo" height="60"></h1>
 
 <p align="center"><font face="Lucida Sans"><em>—— An easy-to-use Python framework to generate adversarial jailbreak prompts by assembling different methods</em></font><br><br> 
-  <a href="http://easyjailbreak.org/">EasyJailbreak Website</a><br><br>
 <a href="http://easyjailbreak.org/">
   	<img alt="Website" src="https://img.shields.io/website?up_message=online&url=http%3A%2F%2Feasyjailbreak.org%2F" height="18">
   </a>
