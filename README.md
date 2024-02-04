@@ -8,9 +8,10 @@
 <a>
   	<img alt="License" src="https://img.shields.io/badge/license-GPL%20v3-brightgreen" height="18">
   </a>
-<a href="https://github.com/EasyJailbreak/EasyJailbreak/releases/tag/0.1.1">
-  	<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/EasyJailbreak/EasyJailbreak?label=release" height="18">
-  </a>
+
+<a href="https://badge.fury.io/py/EasyJailbreak">
+  <img alt="GitHub release (latest by date)" 	src="https://img.shields.io/github/v/release/EasyJailbreak/EasyJailbreak?label=release" height="18">
+</a>
 </p>
 
 <img src="image/README/terminal_demo.gif" alt="EasyJailbreak GIF" style="display: block; margin: 0 auto;" />
