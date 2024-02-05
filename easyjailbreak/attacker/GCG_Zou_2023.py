@@ -86,7 +86,7 @@ class GCG(AttackerBase):
                 for instance in unbreaked_dataset:
                     prompt = instance.jailbreak_prompt.replace('{query}', instance.query)
                     logging.info(f'Generation: input=`{prompt}`')
-                    instance.target_responses = [self.target_model.generate(prompt, temperature=0)]
+                    instance.target_responses = [self.target_model.generate(prompt)]
                     logging.info(f'Generation: Output=`{instance.target_responses}`')
                 self.evaluator(unbreaked_dataset)
                 self.jailbreak_datasets = JailbreakDataset.merge([unbreaked_dataset, breaked_dataset])
