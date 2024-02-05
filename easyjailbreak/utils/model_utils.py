@@ -357,9 +357,15 @@ def get_nonsense_token_ids(model):
         return False
     ans = []
     for i in range(model.vocab_size):
-        s = model.batch_decode([[model.pad_token_id, i]])[0]
-        if contains_uninterpretable_characters(s) or s.strip()=='' or s.rstrip()!=s or i in model.tokenizer.all_special_ids or contains_control_characters(s):
-            ans.append(i)
+        try:
+            if model.pad_token_id is not None:
+                s = model.batch_decode([[model.pad_token_id, i]])[0]
+            else:
+                s = model.batch_decode([[i]])[0]
+            if contains_uninterpretable_characters(s) or s.strip()=='' or s.rstrip()!=s or i in model.tokenizer.all_special_ids or contains_control_characters(s):
+                ans.append(i)
+        except:
+            continue
     return ans
 
 def privacy_information_search(query, res_list, target, mc=False, model=None):
