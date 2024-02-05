@@ -82,7 +82,7 @@ The following table shows the 4 essential components (i.e. **Selectors**, **Muta
 | <font face="Arial Black"><b>GPTFuzz</b></font>| <sub>MCTSExploreSelectPolicy<br>RandomSelector<br>EXP3SelectPolicy<br>RoundRobinSelectPolicy<br>UCBSelectPolicy |<sub> ChangeStyle<br>Expand<br>Rephrase<br>Crossover<br>Translation<br>Shorten|<sub> N/A| <sub>Evaluator_ClassificationJudge </sub>|
 | <font face="Arial Black"><b>ICA</b></font> |<sub> N/A| <sub>N/A| <sub>N/A|<sub> Evaluator_PatternJudge</sub>|
 | <font face="Arial Black"><b>AutoDAN</b></font>|<sub> N/A| <sub>Rephrase<br>CrossOver<br>ReplaceWordsWithSynonyms|<sub> N/A| <sub>Evaluator_PatternJudge</sub>|
-| <font face="Arial Black"><b>PAIR</b></font> |<sub> N/A| <sub>HistoricalInsight|<sub> N/A| <sub>N/A </sub>|
+| <font face="Arial Black"><b>PAIR</b></font> |<sub> N/A| <sub>HistoricalInsight|<sub> N/A| <sub>Evaluator_GenerativeGetScore</sub>|
 | <font face="Arial Black"><b>JailBroken</b></font> | <sub>N/A| <sub>Artificial<br>Auto_obfuscation<br>Auto_payload_splitting<br>Base64_input_only<br>Base64_raw<br>Base64<br>Combination_1<br>Combination_2<br>Combination_3<br>Disemovowel<br>Leetspeak<br>Rot13 | <sub>N/A|<sub> Evaluator_GenerativeJudge</sub> |
 | <font face="Arial Black"><b>Cipher</b></font> | <sub>N/A|<sub> AsciiExpert<br>CaserExpert<br>MorseExpert<br>SelfDefineCipher |<sub> N/A| <sub>Evaluator_GenerativeJudge </sub>|
 | <font face="Arial Black"><b>DeepInception</b></font>|<sub> N/A| <sub>Inception|<sub> N/A|<sub> Evaluator_GenerativeJudge </sub>|
