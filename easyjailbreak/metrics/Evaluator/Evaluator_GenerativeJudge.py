@@ -94,7 +94,7 @@ class EvaluatorGenerativeJudge(Evaluator):
         if self.special_method == 'LlamaGuard':
             def moderate(chat):
                 input_ids = self.eval_model.tokenizer.apply_chat_template(chat, return_tensors="pt")
-                output = self.eval_model.generate(input_ids=input_ids, max_new_tokens=100, pad_token_id=0)
+                output = self.eval_model.model.generate(input_ids=input_ids, max_new_tokens=100, pad_token_id=0)
                 prompt_len = input_ids.shape[-1]
                 return self.eval_model.tokenizer.decode(output[0][prompt_len:], skip_special_tokens=True)
 
