@@ -225,7 +225,6 @@ class PAIR(AttackerBase):
                 else:
                     logging.info(f"Failed to generate output after {self.max_n_attack_attempts} attempts. Terminating.")
                     stream.jailbreak_prompt = stream.query
-                print('len of attack prompt:{}'.format(len(stream.jailbreak_prompt)))
                 # Get target responses
                 if isinstance(self.target_model, OpenaiModel):
                     stream.target_responses = [
@@ -238,7 +237,6 @@ class PAIR(AttackerBase):
                                                    temperature=self.target_temperature, do_sample=True,
                                                    top_p=self.target_top_p,
                                                    eos_token_id=self.target_model.tokenizer.eos_token_id)]
-                print('len of target responses:{}'.format(len(stream.target_responses[-1])))
                 # Get judge scores
                 if self.eval_model is None:
                     stream.eval_results = [random.randint(1, 10)]
@@ -256,11 +254,11 @@ class PAIR(AttackerBase):
 
             if instance.eval_results == [10]:
                 logging.info("Found a jailbreak. Exiting.")
-                instance.eval_results = [1]
+                instance.eval_results = ["True"]
                 break
         else:
             instance = batch[0]
-            instance.eval_results = [0]
+            instance.eval_results = ["False"]
         return instance
 
     def attack(self, save_path='PAIR_attack_result.jsonl'):
