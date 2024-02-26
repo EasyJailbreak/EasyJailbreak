@@ -45,18 +45,18 @@ class MJP(AttackerBase):
     >>> attacker.attack()
     >>> attacker.jailbreak_Dataset.save_to_jsonl("./MJP_results.jsonl")
     """
-    def __init__(self, target_model, eval_model, Dataset, prompt_type='JQ+COT+MC', batch_num=5, template_file=None):
+    def __init__(self, target_model, eval_model, jailbreak_datasets, prompt_type='JQ+COT+MC', batch_num=5, template_file=None):
         r"""
         Initialize MJP, inherit from AttackerBase
 
         :param  ~HuggingfaceModel|~OpenaiModel target_model: LLM being attacked to generate adversarial responses
         :param  ~HuggingfaceModel|~OpenaiModel eval_model: LLM for evaluating during Pruning:phase1(constraint) and Pruning:phase2(select)
-        :param  ~JailbreakDataset Dataset:    dataset containing instances which conveys the query and reference responses
+        :param  ~JailbreakDataset jailbreak_datasets:    dataset containing instances which conveys the query and reference responses
         :param  str prompt_type:  the kind of jailbreak including 'JQ+COT+MC', 'JQ+COT', 'JQ', 'DQ'
         :param  int batch_num:  the number of attacking attempts when the prompt_type include 'MC', i.e. multichoice
         :param  str template_file:   file path of the seed_template.json
         """
-        super().__init__(attack_model=None, target_model=target_model, eval_model=eval_model, jailbreak_datasets=Dataset)
+        super().__init__(attack_model=None, target_model=target_model, eval_model=eval_model, jailbreak_datasets=jailbreak_datasets)
         ############ 4大件 #################
         self.seeder=SeedTemplate().new_seeds(seeds_num=1,method_list=['MJP'],template_file=template_file)
         self.mutator=MJPChoices(prompt_type, self.target_model)
@@ -69,7 +69,6 @@ class MJP(AttackerBase):
         self.current_reject: int = 0
         self.current_iteration: int = 0
 
-        self.Dataset: JailbreakDataset = Dataset
         self.jailbreak_Dataset = JailbreakDataset([])
         if isinstance(target_model, WenxinyiyanModel):
             self.conv_template = get_conv_template('chatgpt')
@@ -84,7 +83,7 @@ class MJP(AttackerBase):
         """
         logging.info("Jailbreak started!")
         try:
-            for i, Instance in enumerate(self.Dataset):
+            for i, Instance in enumerate(self.jailbreak_datasets):
                 print(f"ROW{i}")
                 Instance.jailbreak_prompt = self.seeder[0]
                 Instance.attack_attrs.update({'conversation':copy.deepcopy(self.conv_template)})

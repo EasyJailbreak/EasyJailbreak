@@ -24,7 +24,7 @@ class ICA(AttackerBase):
     def __init__(
             self, 
             target_model, 
-            jailbreakDatasets: JailbreakDataset,
+            jailbreak_datasets: JailbreakDataset,
             attack_model = None,
             eval_model = None,
             max_query: int = 100,
@@ -38,13 +38,13 @@ class ICA(AttackerBase):
         r"""
         Initialize the ICA attack instance.
         :param ~model_wrapper target_model: The target model to be attacked.
-        :param ~JailbreakDataset jailbreakDatasets: The dataset containing harmful queries.
+        :param ~JailbreakDataset jailbreak_datasets: The dataset containing harmful queries.
         :param ~int prompt_num: The number of in-context demonstration.
         :param ~bool user_input: whether to use in-context demonstration input by user.
         :param ~dict pattern_dict: the pattern dictionary used in EvaluatorPatternJudge.
         """
 
-        super().__init__(attack_model, target_model, eval_model, jailbreakDatasets)
+        super().__init__(attack_model, target_model, eval_model, jailbreak_datasets)
 
         self.attack_results = JailbreakDataset([])
         self.evaluator = EvaluatorPatternJudge(pattern_dict=pattern_dict)
@@ -79,7 +79,7 @@ class ICA(AttackerBase):
                 prompt += "User:" + harmful_prompts[i] + '\nAssistant:' + harmful_responses[i] + '\n'
             prompt += "User:{query}"
 
-        for instance in self.jailbreakDatasets:
+        for instance in self.jailbreak_datasets:
             instance.jailbreak_prompt = prompt
 
 
@@ -113,11 +113,11 @@ class ICA(AttackerBase):
 
     def attack(self):
         """
-        Main loop for the attack process, iterate through jailbreakDatasets.
+        Main loop for the attack process, iterate through jailbreak_datasets.
         """
         logging.info("Jailbreak started!")
         try:
-            for Instance in tqdm.tqdm(self.jailbreakDatasets, desc="processing instance"):
+            for Instance in tqdm.tqdm(self.jailbreak_datasets, desc="processing instance"):
                 mutated_instance = self.single_attack(Instance)[0]
                 self.attack_results.add(mutated_instance)
             self.evaluator(self.attack_results)

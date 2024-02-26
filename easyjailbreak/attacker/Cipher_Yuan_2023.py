@@ -23,14 +23,14 @@ class Cipher(AttackerBase):
     Cipher is a class for conducting jailbreak attacks on language models. It integrates attack
     strategies and policies to evaluate and exploit weaknesses in target language models.
     """
-    def __init__(self, attack_model, target_model, eval_model, Jailbreak_Dataset: JailbreakDataset):
-        super().__init__(attack_model, target_model, eval_model, Jailbreak_Dataset)
+    def __init__(self, attack_model, target_model, eval_model, jailbreak_datasets: JailbreakDataset):
+        super().__init__(attack_model, target_model, eval_model, jailbreak_datasets)
         r"""
         Initialize the Cipher Attacker.
         :param attack_model: In this case, the attack_model should be set as None.
         :param target_model: The target language model to be attacked.
         :param eval_model: The evaluation model to evaluate the attack results.
-        :param Jailbreak_Dataset: The dataset to be attacked.
+        :param jailbreak_datasets: The dataset to be attacked.
         """
         self.mutations = [
             MorseExpert(),
@@ -38,7 +38,6 @@ class Cipher(AttackerBase):
             AsciiExpert(),
             SelfDefineCipher()
             ]
-        self.jailbreakDatasets = Jailbreak_Dataset
         self.evaluator = EvaluatorGenerativeJudge(eval_model)
         self.info_dict = {'query': []}
         self.info_dict.update({expert.__class__.__name__: [] for expert in self.mutations})
@@ -71,13 +70,13 @@ class Cipher(AttackerBase):
 
     def attack(self):
         r"""
-        Execute the attack process using four cipher methods on the entire Jailbreak_Dataset.
+        Execute the attack process using four cipher methods on the entire jailbreak_datasets.
         """
         logging.info("Jailbreak started!")
-        assert len(self.jailbreakDatasets) > 0, "The jailbreakDatasets must be a non-empty JailbreakDataset object."
+        assert len(self.jailbreak_datasets) > 0, "The jailbreak_datasets must be a non-empty JailbreakDataset object."
         self.attack_results = JailbreakDataset([])
         try:
-            for instance in self.jailbreakDatasets:
+            for instance in self.jailbreak_datasets:
                 self.info_dict['query'].append(instance.query)
                 results = self.single_attack(instance)
                 for new_instance in results:

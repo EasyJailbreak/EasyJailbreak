@@ -24,7 +24,7 @@ eval_model = OpenaiModel(model_name=eval_model_name, api_keys=openai_key)
 attacker = TAP(attack_model=attack_model,
                target_model=target_model,
                eval_model=eval_model,
-               Dataset=dataset,
+               jailbreak_datasets=dataset,
                tree_width=10,
                tree_depth=10,
                root_num=1,

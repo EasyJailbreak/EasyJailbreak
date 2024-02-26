@@ -26,7 +26,7 @@ dataset = JailbreakDataset(dataset_name)
 attacker = GPTFuzzer(attack_model=GPT4,
                      target_model=GPT4,
                      eval_model=judge_eval_model,
-                     jailbreakDatasets=dataset,
+                     jailbreak_datasets=dataset,
                      max_iteration=100,
                      max_query=  10000,
                      max_jailbreak= 1000,

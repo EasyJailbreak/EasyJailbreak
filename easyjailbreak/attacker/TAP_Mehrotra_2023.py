@@ -53,7 +53,7 @@ class TAP(AttackerBase):
     >>> attacker.attack()
     >>> attacker.jailbreak_Dataset.save_to_jsonl("./TAP_results.jsonl")
     """
-    def __init__(self, attack_model, target_model, eval_model, Dataset: JailbreakDataset,
+    def __init__(self, attack_model, target_model, eval_model, jailbreak_datasets: JailbreakDataset,
                  tree_width=10, tree_depth=10,root_num=1, branching_factor=4,keep_last_n=3,
                  max_n_attack_attempts=5, template_file=None,
                  attack_max_n_tokens=500,
@@ -70,7 +70,7 @@ class TAP(AttackerBase):
         :param  ~HuggingfaceModel|~OpenaiModel attack_model: LLM for generating jailbreak prompts during Branching(mutation)
         :param  ~HuggingfaceModel|~OpenaiModel target_model: LLM being attacked to generate adversarial responses
         :param  ~HuggingfaceModel|~OpenaiModel eval_model: LLM for evaluating during Pruning:phase1(constraint) and Pruning:phase2(select)
-        :param  ~JailbreakDataset Dataset: containing instances which conveys the query and reference responses
+        :param  ~JailbreakDataset jailbreak_datasets: containing instances which conveys the query and reference responses
         :param  int tree_width: defining the max width of the conversation nodes during Branching(mutation)
         :param  int tree_depth: defining the max iteration of a single instance
         :param  int root_num: defining the number of trees or batch of a single instance
@@ -90,7 +90,7 @@ class TAP(AttackerBase):
         super().__init__(attack_model=attack_model,
                          target_model=target_model,
                          eval_model=eval_model,
-                         jailbreak_datasets=Dataset)
+                         jailbreak_datasets=jailbreak_datasets)
         self.seeds=SeedTemplate().new_seeds(1,method_list=['TAP'],template_file=template_file)
 
         ####### 4 major components ##########
@@ -100,7 +100,7 @@ class TAP(AttackerBase):
                                           branching_factor=branching_factor,
                                           max_n_attack_attempts=max_n_attack_attempts)
         self.constraint=DeleteOffTopic(self.eval_model, tree_width)
-        self.selector=SelectBasedOnScores(Dataset, tree_width)
+        self.selector=SelectBasedOnScores(jailbreak_datasets, tree_width)
         self.evaluator=EvaluatorGenerativeGetScore(self.eval_model)
 
         ######## logging information ############

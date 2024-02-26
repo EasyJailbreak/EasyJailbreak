@@ -33,16 +33,16 @@ class ReNeLLM(AttackerBase):
     It integrates attack strategies and policies to evaluate and exploit weaknesses in target language models.
     """
 
-    def __init__(self, attack_model, target_model, eval_model, jailbreakDatasets: JailbreakDataset, evo_max = 20):
+    def __init__(self, attack_model, target_model, eval_model, jailbreak_datasets: JailbreakDataset, evo_max = 20):
         """
             Initialize the ReNeLLM object with models, policies, and configurations.
             :param ~ModelBase attack_model: The model used to generate attack prompts.
             :param ~ModelBase target_model: The target GPT model being attacked.
             :param ~ModelBase eval_model: The model used for evaluation during attacks.
-            :param ~JailbreakDataset jailbreakDatasets: Initial set of prompts for seed pool, if any.
+            :param ~JailbreakDataset jailbreak_datasets: Initial set of prompts for seed pool, if any.
             :param int evo_max: The maximum number of times for mutating a question
         """
-        super().__init__(attack_model, target_model, eval_model, jailbreakDatasets)
+        super().__init__(attack_model, target_model, eval_model, jailbreak_datasets)
         for k,instance in enumerate(self.jailbreak_datasets):
             instance.index = k
         self.current_query: int = 0
@@ -105,7 +105,7 @@ class ReNeLLM(AttackerBase):
         Execute the attack process using provided prompts.
         """
         logging.info("Jailbreak started!")
-        assert len(self.jailbreak_datasets) > 0, "The jailbreakDatasets must be a non-empty JailbreakDataset object."
+        assert len(self.jailbreak_datasets) > 0, "The jailbreak_datasets must be a non-empty JailbreakDataset object."
         self.attack_results = JailbreakDataset([])
         try:
             for instance in tqdm(self.jailbreak_datasets, desc="Processing instances"):
@@ -121,7 +121,7 @@ class ReNeLLM(AttackerBase):
             self.update(self.attack_results)
         except KeyboardInterrupt:
             logging.info("Jailbreak interrupted by user!")
-        self.jailbreakDatasets = self.attack_results
+        self.jailbreak_datasets = self.attack_results
         self.log()
         logging.info("Jailbreak finished!")
 

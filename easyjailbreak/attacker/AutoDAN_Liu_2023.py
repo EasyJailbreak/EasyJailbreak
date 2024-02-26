@@ -92,7 +92,7 @@ class AutoDAN(AttackerBase):
             self,
             attack_model,
             target_model,
-            jailbreakDatasets: JailbreakDataset,
+            jailbreak_datasets: JailbreakDataset,
             eval_model = None,
             max_query: int = 100,
             max_jailbreak: int = 100,
@@ -115,7 +115,7 @@ class AutoDAN(AttackerBase):
         Initialize the AutoDAN attack instance.
         :param ~model_wrapper attack_model: The model used to generate attack prompts.
         :param ~model_wrapper target_model: The target model to be attacked.
-        :param ~JailbreakDataset jailbreakDatasets: The dataset containing harmful queries.
+        :param ~JailbreakDataset jailbreak_datasets: The dataset containing harmful queries.
         :param ~model_wrapper eval_model: The model used for evaluating attck effectiveness during attacks.
         :param ~int num_steps: the number of paragraph-level iteration of AutoDAN-HGA algorithm.
         :param ~int sentence_level_steps: the number of sentence-level iteration of AutoDAN-HGA algorithm.
@@ -130,7 +130,7 @@ class AutoDAN(AttackerBase):
         :param ~dict pattern_dict: the pattern dictionary used in EvaluatorPatternJudge.
         """
 
-        super().__init__(attack_model, target_model, eval_model, jailbreakDatasets)
+        super().__init__(attack_model, target_model, eval_model, jailbreak_datasets)
 
         self.attack_results = JailbreakDataset([])
 
@@ -377,11 +377,11 @@ class AutoDAN(AttackerBase):
 
     def attack(self):
         r"""
-        Main loop for the attack process, iterate through jailbreakDatasets.
+        Main loop for the attack process, iterate through jailbreak_datasets.
         """
         logging.info("Jailbreak started!")
         try:
-            for instance in tqdm(self.jailbreakDatasets, desc="processing instance"):
+            for instance in tqdm(self.jailbreak_datasets, desc="processing instance"):
                 new_instance = self.single_attack(instance)[0]
                 self.attack_results.add(new_instance)
             self.update(self.attack_results)

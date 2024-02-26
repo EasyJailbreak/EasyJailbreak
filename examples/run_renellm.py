@@ -23,6 +23,6 @@ dataset = JailbreakDataset(dataset_name)
 attacker = ReNeLLM(attack_model=GPT4,
                    target_model=llama2_7b_chat,
                    eval_model=GPT4,
-                   jailbreakDatasets=dataset)
+                   jailbreak_datasets=dataset)
 attacker.attack()
 attacker.jailbreakDatasets.save_to_jsonl('AdvBench_renellm.jsonl')

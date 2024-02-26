@@ -31,20 +31,20 @@ class GPTFuzzer(AttackerBase):
     It utilizes mutator and selection policies to generate jailbreak prompts,
     aiming to find vulnerabilities in target models.
     """
-    def __init__(self,attack_model, target_model, eval_model , jailbreakDatasets:JailbreakDataset = None, energy:int = 1,  max_query: int = 100, max_jailbreak: int = 100, max_reject: int = 100, max_iteration: int = 100, seeds_num = 76):
+    def __init__(self,attack_model, target_model, eval_model , jailbreak_datasets:JailbreakDataset = None, energy:int = 1,  max_query: int = 100, max_jailbreak: int = 100, max_reject: int = 100, max_iteration: int = 100, seeds_num = 76):
         """
         Initialize the GPTFuzzer object with models, policies, and configurations.
         :param ~ModelBase attack_model: The model used to generate attack prompts.
         :param ~ModelBase target_model: The target GPT model being attacked.
         :param ~ModelBase eval_model: The model used for evaluation during attacks.
-        :param ~JailbreakDataset jailbreakDatasets: Initial set of prompts for seed pool, if any.
+        :param ~JailbreakDataset jailbreak_datasets: Initial set of prompts for seed pool, if any.
         :param int max_query: Maximum query.
         :param int max_jailbreak: Maximum number of jailbroken issues.
         :param int max_reject: Maximum number of rejected issues.
         :param int max_iteration: Maximum iteration for mutate testing.
         """
-        super().__init__(attack_model, target_model, eval_model, jailbreakDatasets)
-        self.Questions = jailbreakDatasets
+        super().__init__(attack_model, target_model, eval_model, jailbreak_datasets)
+        self.Questions = jailbreak_datasets
         self.Questions_length = len(self.Questions)
         self.initial_prompt_seed = SeedTemplate().new_seeds(seeds_num=seeds_num, prompt_usage='attack', method_list=['Gptfuzzer'],template_file=template_file)
         self.prompt_nodes = JailbreakDataset(
@@ -130,7 +130,7 @@ class GPTFuzzer(AttackerBase):
                 self.log()
         except KeyboardInterrupt:
             logging.info("Fuzzing interrupted by user!")
-        self.jailbreakDatasets = self.attack_results
+        self.jailbreak_datasets = self.attack_results
         logging.info("Fuzzing finished!")
 
 

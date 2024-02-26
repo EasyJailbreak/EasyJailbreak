@@ -22,25 +22,24 @@ class DeepInception(AttackerBase):
     r"""
     DeepInception is a class for conducting jailbreak attacks on language models.
     """
-    def __init__(self, attack_model, target_model, eval_model, Jailbreak_Dataset: JailbreakDataset, scene=None, character_number=None, layer_number=None):
+    def __init__(self, attack_model, target_model, eval_model, jailbreak_datasets: JailbreakDataset, scene=None, character_number=None, layer_number=None):
         r"""
         Initialize the DeepInception attack instance.
         :param attack_model: In this case, the attack_model should be set as None.
         :param target_model: The target language model to be attacked.
         :param eval_model: The evaluation model to evaluate the attack results.
-        :param Jailbreak_Dataset: The dataset to be attacked.
+        :param jailbreak_datasets: The dataset to be attacked.
         :param template_file: The file path of the template.
         :param scene: The scene of the deepinception prompt (The default value is 'science fiction').
         :param character_number: The number of characters in the deepinception prompt (The default value is 4).
         :param layer_number: The number of layers in the deepinception prompt (The default value is 5).
         """
-        super().__init__(attack_model, target_model, eval_model, Jailbreak_Dataset)
+        super().__init__(attack_model, target_model, eval_model, jailbreak_datasets)
         self.current_query: int = 0
         self.current_jailbreak: int = 0
         self.current_reject: int = 0
         self.scene = scene
         self.character_number = character_number
-        self.jailbreak_datasets = Jailbreak_Dataset
         self.layer_number = layer_number
         self.evaluator = EvaluatorGenerativeJudge(eval_model)
         self.mutation = Inception(attr_name='query')

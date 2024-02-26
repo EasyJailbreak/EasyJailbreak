@@ -26,7 +26,7 @@ dataset._dataset = dataset._dataset[:num_attack]
 attacker = DeepInception(attack_model=None,
                          target_model=GPT4,
                          eval_model=GPT4,
-                         Jailbreak_Dataset=dataset,
+                         jailbreak_datasets=dataset,
                          scene='dream',
                          character_number=5,
                          layer_number=5)

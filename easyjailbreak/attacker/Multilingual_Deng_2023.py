@@ -26,15 +26,15 @@ class Multilingual(AttackerBase):
     Multilingual is a class for conducting jailbreak attacks on language models.
     It can translate harmful queries from English into nine non-English languages.
     """
-    def __init__(self, attack_model, target_model, eval_model, Jailbreak_Dataset: JailbreakDataset):
+    def __init__(self, attack_model, target_model, eval_model, jailbreak_datasets: JailbreakDataset):
         r"""
         Initialize the Multilingual attack instance.
         :param attack_model: The attack_model should be set to None.
         :param target_model: The target language model to be attacked.
         :param eval_model: The evaluation model to evaluate the attack results.
-        :param Jailbreak_Dataset: The dataset to be attacked.
+        :param jailbreak_datasets: The dataset to be attacked.
         """
-        super().__init__(attack_model, target_model, eval_model, Jailbreak_Dataset)
+        super().__init__(attack_model, target_model, eval_model, jailbreak_datasets)
         self.current_query: int = 0
         self.current_jailbreak: int = 0
         self.current_reject: int = 0

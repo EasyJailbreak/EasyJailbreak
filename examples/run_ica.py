@@ -33,7 +33,7 @@ pattern_dict = {
 # 初始化攻击器
 attacker = ICA(
     vicuna, 
-    dataset,
+    jailbreak_datasets=dataset,
     attack_model = None,
     eval_model = None,
     max_query=100, 

@@ -16,7 +16,7 @@ prompt_type='JQ+COT+MC'
 # Data load
 dataset = JailbreakDataset('MJP')
 
-attacker = MJP(target_model, eval_model, Dataset=dataset, prompt_type=prompt_type, batch_num=5)
+attacker = MJP(target_model, eval_model, jailbreak_datasets=dataset, prompt_type=prompt_type, batch_num=5)
 
 attacker.attack()
 attacker.jailbreak_Dataset.save_to_jsonl('MJP_results.jsonl')

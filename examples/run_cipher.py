@@ -26,7 +26,7 @@ dataset._dataset = dataset._dataset[:num_attack]
 attacker = Cipher(attack_model=None,
                   target_model=GPT4,
                   eval_model=GPT4,
-                  Jailbreak_Dataset=dataset)
+                  jailbreak_datasets=dataset)
 
 attacker.attack()
 attacker.log()
