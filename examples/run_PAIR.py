@@ -19,4 +19,4 @@ attacker = PAIR(attack_model=attack_model,
                 jailbreak_datasets=dataset)
 
 # Finally, start jailbreaking.
-attacker.attack(save_path='vicuna-13b-v1.5_llama-2-7b-chat_gpt4_AdvBench_result.jsonl')
+attacker.attack(save_path='vicuna-13b-v1.5_gpt4_gpt4_AdvBench_result.jsonl')
