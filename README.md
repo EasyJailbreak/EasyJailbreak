@@ -68,13 +68,13 @@ This project is mainly divided into three parts.
 1. The first part requires the user to prepare **Queries**, **Config,** **Models**, and **Seed**.
 2. The second part is the main part, consisting of two processes that form a loop structure, namely **Mutation** and **Inference**.
 
-   1) In the **Mutation** process, the program will first select the optimal jailbreak prompts through **Selector**, then transform the prompts through **Mutator**, and then filter out the expected prompts through **Filter.**
+   1) In the **Mutation** process, the program will first select the optimal jailbreak prompts through **Selector**, then transform the prompts through **Mutator**, and then filter out the expected prompts through **Constraint.**
    2) In the **Inference** process, the prompts are used to attack the **Target (model)** and obtain the target model's responses. The responses are then inputted into **Evaluator** to obtain the score of the attack's effectiveness for this round, which is then passed to Selector to complete one cycle.
 3. The third part you will get a **Report**. Under some stopping mechanism, the loop stops, and the user will receive a report about each attack (including jailbreak prompts, responses of **Target (model)**, Evaluator's scores, etc.).
 
 <p align="center"><img src="image/README/project_structure.png" alt="Project Structure" height="300"></p>
 
-The following table shows the 4 essential components (i.e. **Selectors**, **Mutators**, **Filters**, **Evaluators**) used by each recipe implemented in our project:
+The following table shows the 4 essential components (i.e. **Selectors**, **Mutators**, **Constraints**, **Evaluators**) used by each recipe implemented in our project:
 
 | <font face="Arial Black" size="4">Attack<br>Recipes</font> | <font face="Arial Black" size="4">Selector</font> | <font face="Arial Black" size="4">Mutation</font> | <font face="Arial Black" size="4">Constraint</font>| <font face="Arial Black" size="4">Evaluator</font>|
 | :---------------: | :---------------: | :----------------: | :--------------: |:-------------: |
@@ -167,13 +167,13 @@ seeder.new_seeds()
 
 #### 3. Instantiate Components
 
- As mentioned in [Project Structure](#project-structure), the second part consists of 4 major components (modules, i.e. selector, mutator, filter, evaluator) and you need to instantiate them when you DIY your attack method. All available **Selectors**, **Mutators**, **Filter**, **Evaluators** and their details can be found in the [documentation](https://easyjailbreak.github.io/EasyJailbreakDoc.github.io/).
+ As mentioned in [Project Structure](#project-structure), the second part consists of 4 major components (modules, i.e. selector, mutator, constraint, evaluator) and you need to instantiate them when you DIY your attack method. All available **Selectors**, **Mutators**, **Constraint**, **Evaluators** and their details can be found in the [documentation](https://easyjailbreak.github.io/EasyJailbreakDoc.github.io/).
 
 You can `import` the module you want by using `from easyjailbreak.module_name.method_name import method_name`, here is a brief instruction for you to start (the `method_name` is what you choose as the method in the corresponding module):
 
 1. **Selector**:  `from easyjailbreak.selector.method_name import method_name`
 2. **Mutator**:  `from easyjailbreak.mutation.rule.method_name import method_name`
-3. **Filter**:  `from easyjailbreak.constraint.method_name import method_name`
+3. **Constraint**:  `from easyjailbreak.constraint.method_name import method_name`
 4. **Evaluator**:  `from easyjailbreak.metrics.Evaluator.method_name import method_name`
 
 Here is an example.
