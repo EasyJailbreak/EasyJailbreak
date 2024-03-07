@@ -18,3 +18,7 @@ from easyjailbreak.mutation.rule.ReplaceWordsWithSynonyms import ReplaceWordsWit
 from easyjailbreak.mutation.rule.Translate import Translate
 from easyjailbreak.mutation.rule.Artificial import Artificial
 from easyjailbreak.mutation.rule.Inception import Inception
+from easyjailbreak.mutation.rule.BinaryTree import BinaryTree
+from easyjailbreak.mutation.rule.Reverse import Reverse
+from easyjailbreak.mutation.rule.OddEven import OddEven
+from easyjailbreak.mutation.rule.Length import Length
