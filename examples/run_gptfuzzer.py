@@ -35,4 +35,4 @@ attacker = GPTFuzzer(attack_model=GPT4,
 # 执行攻击并记录日志
 attacker.attack()
 attacker.log()
-attacker.jailbreakDatasets.save_to_jsonl('QuestionList_gptfuzz.jsonl')
+attacker.jailbreak_datasets.save_to_jsonl('QuestionList_gptfuzz.jsonl')

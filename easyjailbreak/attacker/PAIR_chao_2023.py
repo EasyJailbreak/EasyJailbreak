@@ -46,7 +46,7 @@ class PAIR(AttackerBase):
         >>> attacker = PAIR(attack_model=attack_model,
         >>>                 target_model=target_model,
         >>>                 eval_model=eval_model,
-        >>>                 jailbreakDatasets=dataset,
+        >>>                 jailbreak_datasets=dataset,
         >>>                 n_streams=20,
         >>>                 n_iterations=5)
         >>>

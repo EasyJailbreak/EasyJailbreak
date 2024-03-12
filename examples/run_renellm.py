@@ -25,4 +25,4 @@ attacker = ReNeLLM(attack_model=GPT4,
                    eval_model=GPT4,
                    jailbreak_datasets=dataset)
 attacker.attack()
-attacker.jailbreakDatasets.save_to_jsonl('AdvBench_renellm.jsonl')
+attacker.jailbreak_datasets.save_to_jsonl('AdvBench_renellm.jsonl')
