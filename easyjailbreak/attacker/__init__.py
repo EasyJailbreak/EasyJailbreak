@@ -3,3 +3,12 @@ from .Gptfuzzer_yu_2023 import GPTFuzzer
 from .ReNeLLM_ding_2023 import ReNeLLM
 from .ICA_wei_2023 import ICA
 from .GCG_Zou_2023 import GCG
+from .AutoDAN_Liu_2023 import AutoDAN
+from .Cipher_Yuan_2023 import Cipher
+from .CodeChameleon_2024 import  CodeChameleon
+from .DeepInception_Li_2023 import DeepInception
+from .Jailbroken_wei_2023 import Jailbroken
+from .MJP_Li_2023 import MJP
+from .Multilingual_Deng_2023 import Multilingual
+from .PAIR_chao_2023 import PAIR
+from .TAP_Mehrotra_2023 import TAP
