@@ -42,6 +42,8 @@ EasyJailbreak is an *easy-to-use* Python framework designed for researchers and 
 
 - **[Documentation](https://easyjailbreak.github.io/EasyJailbreakDoc.github.io):** Detailed API documentation and parameter explanations.
 
+- **[Results](https://drive.google.com/file/d/1TMFCfwWT-DBfD-vWdhPCAA6z9iBebD6q/view?usp=drive_link):** Response results of different models to attack recipe.
+
 
 ## 🛠️ Setup
 
@@ -89,6 +91,7 @@ The following table shows the 4 essential components (i.e. **Selectors**, **Muta
 | <font face="Arial Black"><b>MultiLingual</b></font> |<sub>N/A|<sub> Translate|<sub> N/A| <sub>Evaluator_GenerativeJudge </sub>|
 | <font face="Arial Black"><b>GCG</b></font> |<sub> ReferenceLossSelector|<sub> MutationTokenGradient| <sub>N/A|<sub> Evaluator_PrefixExactMatch</sub>|
 | <font face="Arial Black"><b>TAP</b></font>|<sub>SelectBasedOnScores|<sub> IntrospectGeneration </sub>|<sub> DeleteOffTopic </sub>| <sub>Evaluator_GenerativeGetScore</sub>|
+| <font face="Arial Black"><b>CodeChameleon</b></font>|<sub>N/A|<sub> BinaryTree<br>Length <br> Reverse <br> OddEven </sub>|<sub> N/A </sub>| <sub>Evaluator_GenerativeGetScore</sub>|
 
 
 ## 💻 Usage
