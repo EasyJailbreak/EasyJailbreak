@@ -42,7 +42,9 @@ EasyJailbreak is an *easy-to-use* Python framework designed for researchers and 
 
 - **[Documentation](https://easyjailbreak.github.io/EasyJailbreakDoc.github.io):** Detailed API documentation and parameter explanations.
 
-- **[Results](https://drive.google.com/file/d/1TMFCfwWT-DBfD-vWdhPCAA6z9iBebD6q/view?usp=drive_link):** Response results of different models to attack recipe.
+### 🏆 Experimental results
+
+The jailbreak attack results of 11 attack recipes on 10 large language models can be downloaded at **[Link](https://drive.google.com/file/d/1TMFCfwWT-DBfD-vWdhPCAA6z9iBebD6q/view?usp=drive_link)**.
 
 
 ## 🛠️ Setup
