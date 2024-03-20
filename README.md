@@ -37,6 +37,7 @@
 EasyJailbreak is an *easy-to-use* Python framework designed for researchers and developers focusing on LLM security. Specifically,  EasyJailbreak decomposes the mainstream jailbreaking process into several iterable steps: initialize **mutation seeds**, **select suitable seeds**, **add constraint**, **mutate**, **attack**, and **evaluate**. On this basis, EasyJailbreak provides a component for each step, constructing a playground for further research and attempts. More details can be found in our paper. 
 
 ### 📚 Resources
+- **[Paper](https://arxiv.org/pdf/2403.12171.pdf):** Details the framework's design and key experimental results.
 
 - **[EasyJailbreak Website](http://easyjailbreak.org/):** Explore different LLMs' jailbreak results and view examples of jailbreaks. 
 
@@ -222,11 +223,13 @@ response = model.generate(attack_query)
 ## 🖊️ Citing EasyJailbreak
 
 ```bibtex
-@misc{2024easyjailbreak,
-    title={EasyJailbreak: A Unified Framework for Jailbreaking Large Language Models},
-    author={Zhou, Weikang and Wang, Xiao and Xiong, Limao and Xia, Han and Gu, Yingshuang and Chai, Mingxu and Zhu, Fukang and Huang, Caishuang and Dou, Shihan and Xi, Zhiheng and Zheng, Rui and Gao, Songyang and Zou, Yicheng and Yan, Hang and Le, Yifan and Wang, Ruohui and Li, Lijun and Shao, Jing and Gui, Tao and Zhang, Qi and Huang, Xuanjing},
-    howpublished = {\url{https://github.com/EasyJailbreak/EasyJailbreak}},
-    year={2024}
+@misc{zhou2024easyjailbreak,
+      title={EasyJailbreak: A Unified Framework for Jailbreaking Large Language Models}, 
+      author={Weikang Zhou and Xiao Wang and Limao Xiong and Han Xia and Yingshuang Gu and Mingxu Chai and Fukang Zhu and Caishuang Huang and Shihan Dou and Zhiheng Xi and Rui Zheng and Songyang Gao and Yicheng Zou and Hang Yan and Yifan Le and Ruohui Wang and Lijun Li and Jing Shao and Tao Gui and Qi Zhang and Xuanjing Huang},
+      year={2024},
+      eprint={2403.12171},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
 }
 
 ```
