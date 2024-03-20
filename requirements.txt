@@ -7,5 +7,5 @@ openai>=1.0.0
 numpy
 pandas
 accelerate
-fschat
+fschat==0.2.34
 jsonlines
