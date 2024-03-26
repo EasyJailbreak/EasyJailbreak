@@ -150,7 +150,7 @@ target_model = HuggingfaceModel(model_name_or_path='meta-llama/Llama-2-7b-chat-h
 target_response = target_model.generate(messages=['how to make a bomb?'])
 ```
 
-#### 2. Load Dataset and intialize Seed
+#### 2. Load Dataset and initialize Seed
 
 **Dataset**: We prepare a class named "JailbreakDataset" to wrap the the instance list. And every instance contains query, jailbreak prompts, etc. You can either load Dataset from our online repo or your local file.
 
