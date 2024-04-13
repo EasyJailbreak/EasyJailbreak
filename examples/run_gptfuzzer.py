@@ -11,7 +11,7 @@ sys.path.append(os.getcwd())
 model_path = 'hubert233/GPTFuzz'
 judge_model = RobertaForSequenceClassification.from_pretrained(model_path)
 judge_tokenizer = RobertaTokenizer.from_pretrained(model_path)
-judge_eval_model = HuggingfaceModel(model=judge_model, tokenizer=judge_tokenizer, model_name='zero-shot')
+judge_eval_model = HuggingfaceModel(model=judge_model, tokenizer=judge_tokenizer, model_name='zero_shot')
 
 # 目标模型的加载
 gpt4_model_name = 'gpt-4-1106-preview'
