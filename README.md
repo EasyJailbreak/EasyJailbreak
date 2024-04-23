@@ -50,7 +50,7 @@ The jailbreak attack results of 11 attack recipes on 10 large language models ca
 
 ## 🛠️ Setup
 
-There are two methods to install EasyJailbreak.
+There are two methods to install EasyJailbreak. All those methods need `python>=3.9` installed.
 
 1. For users who only require the approaches (or [recipes](#using-recipe)) collected in EasyJailbreak, execute the following command:
 
