@@ -332,7 +332,7 @@ def pad_and_stack(tensors, pad_value):
     
     return stacked_tensor
 
-@functools.cache
+@functools.lru_cache
 def get_nonsense_token_ids(model):
     """
     返回一个列表指示词表中哪些token存在以下任一问题:
