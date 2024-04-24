@@ -61,7 +61,8 @@ class Instance:
             parents=[i for i in self.parents],
             children=[i for i in self.children],
             attack_attrs=copy.deepcopy(self.attack_attrs))
-        new_Instance._data = copy.deepcopy(self._data)
+        rest_data = {key: value for key, value in self._data.items() if key not in new_Instance._data}
+        new_Instance._data.update(copy.deepcopy(rest_data))
         return new_Instance
 
     def delete(self, *keys):
