@@ -22,13 +22,14 @@ class Logger:
         self.filter = KeywordFilter('openai')  # 替换为你想拒绝的关键词
         self.logger.addFilter(self.filter)
 
-        self.console_handler = logging.StreamHandler()
-        self.logger.addHandler(self.console_handler)
-
-        self.file_handler = logging.FileHandler(save_path)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        self.file_handler.setFormatter(formatter)
-        self.logger.addHandler(self.file_handler)
+        if not self.logger.handlers:
+            self.console_handler = logging.StreamHandler()
+            self.logger.addHandler(self.console_handler)
+    
+            self.file_handler = logging.FileHandler(save_path)
+            formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+            self.file_handler.setFormatter(formatter)
+            self.logger.addHandler(self.file_handler)
 
     def log_attack_result(self, result, examples_completed=None):
         pass
