@@ -8,6 +8,7 @@ setup(
     author_email="waltersumbon@gmail.com",
     url="https://github.com/EasyJailbreak/EasyJailbreak",
     packages=find_packages(include=('easyjailbreak*',)),
+    include_package_data=True,
     install_requires=[
         'transformers>=4.34.0',
         'protobuf',
