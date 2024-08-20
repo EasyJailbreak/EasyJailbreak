@@ -1,4 +1,4 @@
-import pkgutil
+import importlib.resources
 from typing import List
 from easyjailbreak.mutation import MutationBase
 from easyjailbreak.datasets import Instance
@@ -19,10 +19,10 @@ class Artificial(MutationBase):
                                  " instance")
 
         mutated_results = []
+        seed_path = importlib.resources.files("easyjailbreak.seed") / "seed_template.json"
         prompt_seeds = SeedTemplate().new_seeds(
             method_list=['Jailbroken'],
-            template_file=pkgutil.get_data("easyjailbreak.seed",
-                                           "seed_template.json")
+            template_file=seed_path
         )
 
         for prompt_seed in prompt_seeds:

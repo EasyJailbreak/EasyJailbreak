@@ -1,4 +1,4 @@
-import pkgutil
+import importlib.resources
 from typing import List
 from easyjailbreak.mutation import MutationBase
 from easyjailbreak.datasets import Instance
@@ -19,10 +19,10 @@ class Inception(MutationBase):
                                  " instance")
 
         mutated_results = []
+        seed_path = importlib.resources.files("easyjailbreak.seed") / "seed_template.json"
         prompt_seeds = SeedTemplate().new_seeds(
             method_list=['DeepInception'],
-            template_file=pkgutil.get_data("easyjailbreak.seed",
-                                           "seed_template.json")
+            template_file=seed_path
         )
         new_instance = instance.copy()
         new_instance.jailbreak_prompt = prompt_seeds[-1]
