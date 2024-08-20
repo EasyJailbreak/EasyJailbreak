@@ -1,8 +1,10 @@
+import importlib.resources
+import random
+import re
 from easyjailbreak.mutation import MutationBase
 from easyjailbreak.datasets import JailbreakDataset, Instance
 from easyjailbreak.seed import SeedTemplate
-import random
-import re
+
 
 class CrossOver(MutationBase):
     r"""
@@ -20,9 +22,14 @@ class CrossOver(MutationBase):
         self.num_points = num_points
         self.seed_pool = seed_pool
         if seed_pool is None:
-            self.seed_pool = SeedTemplate().new_seeds(seeds_num=10, prompt_usage='attack', method_list=["AutoDAN-a"], template_file='./easyjailbreak/seed/seed_template.json')
+            seed_path = importlib.resources.files("easyjailbreak.seed") / "seed_template.json"
+            self.seed_pool = SeedTemplate().new_seeds(
+                seeds_num=10,
+                prompt_usage='attack',
+                method_list=["AutoDAN-a"],
+                template_file=seed_path
+            )
             self.seed_pool = JailbreakDataset([Instance(jailbreak_prompt=prompt) for prompt in self.seed_pool])
-
 
     def _get_mutated_instance(self, instance, **kwargs):
         r"""

@@ -1,3 +1,4 @@
+import importlib.resources
 from typing import List
 from easyjailbreak.mutation import MutationBase
 from easyjailbreak.datasets import Instance
@@ -12,13 +13,18 @@ class Artificial(MutationBase):
         self.attr_name = attr_name
 
     def _get_mutated_instance(self, instance) -> List[Instance]:
-        
+
         if not hasattr(instance, self.attr_name):
-            raise AttributeError(f"Attribute '{self.attr_name}' not found in instance")
-        
+            raise AttributeError(f"Attribute '{self.attr_name}' not found in"
+                                 " instance")
+
         mutated_results = []
-        prompt_seeds = SeedTemplate().new_seeds(method_list=['Jailbroken'],template_file="easyjailbreak\seed\seed_template.json")
-        
+        seed_path = importlib.resources.files("easyjailbreak.seed") / "seed_template.json"
+        prompt_seeds = SeedTemplate().new_seeds(
+            method_list=['Jailbroken'],
+            template_file=seed_path
+        )
+
         for prompt_seed in prompt_seeds:
             new_instance = instance.copy()
             for value in prompt_seed.values():
@@ -27,5 +33,3 @@ class Artificial(MutationBase):
             mutated_results.append(new_instance)
 
         return mutated_results
-    
-
