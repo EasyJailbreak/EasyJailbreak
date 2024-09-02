@@ -31,7 +31,7 @@ class GPTFuzzer(AttackerBase):
     It utilizes mutator and selection policies to generate jailbreak prompts,
     aiming to find vulnerabilities in target models.
     """
-    def __init__(self,attack_model, target_model, eval_model , jailbreak_datasets:JailbreakDataset = None, energy:int = 1,  max_query: int = 100, max_jailbreak: int = 100, max_reject: int = 100, max_iteration: int = 100, seeds_num = 76):
+    def __init__(self,attack_model, target_model, eval_model , jailbreak_datasets:JailbreakDataset = None, energy:int = 1,  max_query: int = 100, max_jailbreak: int = 100, max_reject: int = 100, max_iteration: int = 100, seeds_num = 76, template_file = None):
         """
         Initialize the GPTFuzzer object with models, policies, and configurations.
         :param ~ModelBase attack_model: The model used to generate attack prompts.
