@@ -3,17 +3,18 @@ import warnings
 from .model_base import BlackBoxModelBase
 from openai import OpenAI
 from fastchat.conversation import get_conv_template
-
+from httpx import URL
 class OpenaiModel(BlackBoxModelBase):
-    def __init__(self, model_name: str, api_keys: str, generation_config=None):
+    def __init__(self, model_name: str, api_keys: str, generation_config=None, base_url:str | URL | None = None,):
         """
         Initializes the OpenAI model with necessary parameters.
         :param str model_name: The name of the model to use.
         :param str api_keys: API keys for accessing the OpenAI service.
         :param str template_name: The name of the conversation template, defaults to 'chatgpt'.
         :param dict generation_config: Configuration settings for generation, defaults to an empty dictionary.
+        :param str|URL base_url: The base URL for the OpenAI API, defaults to None.
         """
-        self.client = OpenAI(api_key=api_keys)
+        self.client = OpenAI(api_key=api_keys, base_url=base_url)
         self.model_name = model_name
         self.conversation = get_conv_template('chatgpt')
         self.generation_config = generation_config if generation_config is not None else {}
