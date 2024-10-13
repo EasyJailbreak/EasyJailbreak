@@ -9,3 +9,4 @@ pandas
 accelerate
 fschat==0.2.34
 jsonlines
+nltk
