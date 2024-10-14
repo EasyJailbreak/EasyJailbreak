@@ -172,6 +172,7 @@ class PAIR(AttackerBase):
         :param ~Instance instance: The instance used to attack the target model.
         :return: ~Instance: The instance with the jailbreak result saved in its eval_results.
         """
+
         instance.jailbreak_prompt = self.attack_seed.format(query=instance.query,
                                                             reference_responses=instance.reference_responses[0])
         self.attack_model.set_system_message(self.attack_system_message.format(query=instance.query,
@@ -206,8 +207,8 @@ class PAIR(AttackerBase):
                         stream.attack_attrs['attack_conversation'].roles[1], init_message)
                     stream.jailbreak_prompt = stream.attack_attrs['attack_conversation'].get_prompt()[
                                               :-len(stream.attack_attrs['attack_conversation'].sep2)]
-                if isinstance(self.attack_model, OpenaiModel):
-                    stream.jailbreak_prompt = stream.attack_attrs['attack_conversation'].to_openai_api_messages()
+                # if isinstance(self.attack_model, OpenaiModel):
+                    # stream.jailbreak_prompt = stream.attack_attrs['attack_conversation'].to_openai_api_messages()
 
                 for _ in range(self.max_n_attack_attempts):
                     new_instance = self.mutations[0](jailbreak_dataset=JailbreakDataset([stream]),
