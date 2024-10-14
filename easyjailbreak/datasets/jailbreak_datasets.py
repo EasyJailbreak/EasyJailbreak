@@ -42,6 +42,8 @@ class JailbreakDataset(torch.utils.data.Dataset):
 
         if isinstance(dataset, list):
             self._dataset = dataset
+        elif (isinstance(dataset, str) and dataset == "HarmBench"):
+            self._dataset = self.get_harmbench_dataset()
         elif isinstance(dataset, str):
             if os.path.exists(dataset):
                 logging.warning('You chose to load a dataset from a local file. If it is not a json/jsonl file, please make sure you correctly set \'local_file_type\' parameter when you instantiate the JailbreakDataset.')
@@ -223,6 +225,23 @@ class JailbreakDataset(torch.utils.data.Dataset):
         :return list[list[Instance]]: A list of lists, where each sublist contains Instances grouped by their parent nodes.
         """
         return self.group_by(lambda x: tuple(sorted(list(set(id(parent) for parent in x.parents)))))
+    
+
+    def get_harmbench_dataset(self):
+        # Instance list for the dataset
+        instance_list = []
+        
+        # Open csv and append to instance list
+        with open("easyjailbreak/datasets/harmbench_dataset.csv", mode='r') as file:
+            csv_reader = csv.reader(file)
+            
+            next(csv_reader, None)
+            # Loop through each row and append the first column value to the list
+            for row in csv_reader:
+                instance_list.append(Instance(query=row[0], reference_responses=[row[1]]))
+                
+        return instance_list
+        
 
 
 
