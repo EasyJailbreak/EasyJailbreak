@@ -10,31 +10,26 @@ arXiv Link: https://arxiv.org/abs/2402.16717
 
 import logging
 logging.basicConfig(level=logging.INFO)
-from easyjailbreak.metrics.Evaluator import EvaluatorGenerativeJudge
-from easyjailbreak.attacker import AttackerBase
-from easyjailbreak.datasets import JailbreakDataset, Instance
-from easyjailbreak.mutation.rule import *
-
+from jailbreak.metrics.Evaluator import EvaluatorGenerativeJudge
+from jailbreak.attacker import AttackerBase
+from jailbreak.datasets import JailbreakDataset, Instance
+from jailbreak.mutation.rule import *
+import os.path
 __all__ = ['CodeChameleon']
-     
+
+
 class CodeChameleon(AttackerBase):
     r"""
     Implementation of CodeChameleon Jailbreak Challenges in Large Language Models
     """
+
     def __init__(self, attack_model, target_model, eval_model, jailbreak_datasets: JailbreakDataset):
-        r"""
-        :param attack_model: The attack_model is used to generate the adversarial prompt. In this case, the attack_model should be set as None.
-        :param target_model: The target language model to be attacked.
-        :param eval_model: The evaluation model to evaluate the attack results.
-        :param jailbreak_datasets: The dataset to be attacked.
-        :param template_file: The file path of the template.
-        """
         super().__init__(attack_model, target_model, eval_model, jailbreak_datasets)
         self.mutations = [
             BinaryTree(attr_name='query'),
-            Length(attr_name='query'),
-            Reverse(attr_name='query'),
-            OddEven(attr_name='query'),
+            # Length(attr_name='query'),
+            # Reverse(attr_name='query'),
+            # OddEven(attr_name='query'),
         ]
         self.evaluator = EvaluatorGenerativeJudge(eval_model)
         self.current_jailbreak = 0
@@ -43,43 +38,105 @@ class CodeChameleon(AttackerBase):
 
     def single_attack(self, instance: Instance) -> JailbreakDataset:
         r"""
-        single attack process using provided prompts and mutation methods.
-
-        :param instance: The Instance that is attacked.
+        Single attack process with mutation-specific logging
         """
         instance_ds = JailbreakDataset([instance])
         source_instance_list = []
         updated_instance_list = []
 
+        # Track mutations and log transformation results
         for mutation in self.mutations:
+            mutation_name = mutation.__class__.__name__
             transformed_jailbreak_datasets = mutation(instance_ds)
+
+            # Log mutation application and instance count
+            logging.info(
+                f"Applied {mutation_name} mutation. Generated {len(transformed_jailbreak_datasets)} instances.")
+
+            # Add mutation metadata to instances
             for item in transformed_jailbreak_datasets:
+                item.metadata = getattr(item, 'metadata', {})  # Initialize metadata if not exists
+                item.metadata['applied_mutation'] = mutation_name
                 source_instance_list.append(item)
-                    
+
+        # Process generated instances and log details
         for instance in source_instance_list:
-            answer = self.target_model.generate(instance.jailbreak_prompt.format(decryption_function = instance.decryption_function, query = instance.query))
-            instance.target_responses.append(answer)
-            updated_instance_list.append(instance)
+            try:
+                # Generate response from target model
+                formatted_prompt = instance.jailbreak_prompt.format(
+                    decryption_function=instance.decryption_function,
+                    query=instance.query
+                )
+                answer = self.target_model.generate(formatted_prompt)
+                instance.target_responses.append(answer)
+
+                # Log mutation-specific results
+                mutation_used = instance.metadata.get('applied_mutation', 'unknown')
+                logging.info(
+                    f"Mutation '{mutation_used}' processed\n"
+                    f"Original query: {instance.query}\n"
+                    f"Transformed query: {formatted_prompt}\n"
+                    f"Model response: {answer}\n"
+                    "-------------------------"
+                )
+
+                updated_instance_list.append(instance)
+
+            except Exception as e:
+                logging.error(f"Error processing instance: {str(e)}")
+
         return JailbreakDataset(updated_instance_list)
-    
-    def attack(self):
+
+    def get_mutated_prompts(self) -> list:
         r"""
-        Execute the attack process using provided prompts and mutations.
+        获取所有变异后的提示词
+        
+        :return: 包含所有变异后提示词的列表，包括攻击结果信息
         """
-        logging.info("Jailbreak started!")
+        mutated_prompts = []
+        for instance in self.attack_results:
+            formatted_prompt = instance.jailbreak_prompt.format(
+                decryption_function=instance.decryption_function,
+                query=instance.query
+            )
+            mutated_prompts.append({
+                'original_query': instance.query,
+                'mutated_prompt': formatted_prompt,
+                'mutation_type': instance.metadata.get('applied_mutation', 'unknown'),
+                'num_jailbreak': instance.num_jailbreak,
+                'num_reject': instance.num_reject,
+            })
+        return mutated_prompts
+
+    def attack(self, save_path = 'CodeChameleon_attack_result.jsonl'):
+        r"""
+        Execute attack with enhanced progress logging
+        """
+        logging.info("Jailbreak started! Initializing mutations...")
         self.attack_results = JailbreakDataset([])
         try:
-            for Instance in self.jailbreak_datasets:
-                results = self.single_attack(Instance)
+            for idx, instance in enumerate(self.jailbreak_datasets):
+                logging.info(f"Processing instance {idx + 1}/{len(self.jailbreak_datasets)}")
+                results = self.single_attack(instance)
                 for new_instance in results:
                     self.attack_results.add(new_instance)
-        
+
+            # Final evaluation and reporting
+            logging.info("Final evaluation starting...")
+            self.evaluator(self.attack_results)
+            self.update(self.attack_results)
+            logging.info("Final evaluation completed.")
+
         except KeyboardInterrupt:
-            logging.info("Jailbreak interrupted by user!")
+            logging.warning("Jailbreak interrupted by user! Partial results preserved.")
+
+        self.log()
+        self.jailbreak_datasets.save_to_jsonl(save_path)
+        logging.info(
+            'Jailbreak result saved at {}!'.format(os.path.join(os.path.dirname(os.path.abspath(__file__)), save_path)))
         
-        self.evaluator(self.attack_results)
-        self.update(self.attack_results)
-        logging.info("Jailbreak finished!")
+        # 返回变异后的提示词
+        return self.attack_results, self.get_mutated_prompts()
 
     def update(self, Dataset: JailbreakDataset):
         r"""
