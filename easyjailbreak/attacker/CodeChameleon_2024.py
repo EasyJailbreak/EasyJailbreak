@@ -10,10 +10,10 @@ arXiv Link: https://arxiv.org/abs/2402.16717
 
 import logging
 logging.basicConfig(level=logging.INFO)
-from jailbreak.metrics.Evaluator import EvaluatorGenerativeJudge
-from jailbreak.attacker import AttackerBase
-from jailbreak.datasets import JailbreakDataset, Instance
-from jailbreak.mutation.rule import *
+from easyjailbreak.metrics.Evaluator import EvaluatorGenerativeJudge
+from easyjailbreak.attacker import AttackerBase
+from easyjailbreak.datasets import JailbreakDataset, Instance
+from easyjailbreak.mutation.rule import *
 import os.path
 __all__ = ['CodeChameleon']
 
