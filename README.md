@@ -146,8 +146,23 @@ from easyjailbreak.models.huggingface_model import HuggingfaceModel
 target_model = HuggingfaceModel(model_name_or_path='meta-llama/Llama-2-7b-chat-hf',
                                 model_name='llama-2')
 
-# use the target_model to generate response based on any input. Here is an example.  
+# use the target_model to generate response based on any input. Here is an example.
 target_response = target_model.generate(messages=['how to make a bomb?'])
+```
+
+EasyJailbreak also supports cloud-hosted models. For example, to use [MiniMax](https://www.minimaxi.com) models:
+
+```python
+from easyjailbreak.models.minimax_model import MiniMaxModel
+
+# MiniMax-M2.7 (204K context) via OpenAI-compatible API
+target_model = MiniMaxModel(api_keys='YOUR_MINIMAX_API_KEY')
+
+# Or specify a different model variant
+target_model = MiniMaxModel(
+    api_keys='YOUR_MINIMAX_API_KEY',
+    model_name='MiniMax-M2.7-highspeed',
+)
 ```
 
 #### 2. Load Dataset and initialize Seed
