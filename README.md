@@ -155,7 +155,7 @@ EasyJailbreak also supports cloud-hosted models. For example, to use [MiniMax](h
 ```python
 from easyjailbreak.models.minimax_model import MiniMaxModel
 
-# MiniMax-M2.7 (204K context) via OpenAI-compatible API
+# MiniMax-M3 via OpenAI-compatible API
 target_model = MiniMaxModel(api_keys='YOUR_MINIMAX_API_KEY')
 
 # Or specify a different model variant

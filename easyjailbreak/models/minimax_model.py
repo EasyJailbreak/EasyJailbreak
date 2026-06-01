@@ -6,9 +6,9 @@ class MiniMaxModel(OpenaiModel):
     """
     MiniMax model wrapper using the OpenAI-compatible API.
 
-    MiniMax provides large language models (MiniMax-M2.7, MiniMax-M2.7-highspeed,
-    etc.) accessible through an OpenAI-compatible chat completions endpoint at
-    ``https://api.minimax.io/v1``.
+    MiniMax provides large language models (MiniMax-M3, MiniMax-M2.7,
+    MiniMax-M2.7-highspeed) accessible through an OpenAI-compatible chat
+    completions endpoint at ``https://api.minimax.io/v1``.
 
     Since ``MiniMaxModel`` inherits from :class:`OpenaiModel`, it is recognised
     by every ``isinstance(model, OpenaiModel)`` check throughout the framework
@@ -22,9 +22,9 @@ class MiniMaxModel(OpenaiModel):
     """
 
     MINIMAX_BASE_URL = 'https://api.minimax.io/v1'
-    DEFAULT_MODEL = 'MiniMax-M2.7'
+    DEFAULT_MODEL = 'MiniMax-M3'
 
-    # Regex to strip <think>…</think> reasoning blocks that MiniMax M2.7 may
+    # Regex to strip <think>…</think> reasoning blocks that MiniMax models may
     # emit when chain-of-thought is enabled.
     _THINK_TAG_RE = re.compile(r'<think>.*?</think>\s*', re.DOTALL)
 
@@ -38,9 +38,9 @@ class MiniMaxModel(OpenaiModel):
         Initializes the MiniMax model.
 
         :param str api_keys: MiniMax API key (``MINIMAX_API_KEY``).
-        :param str model_name: Model identifier, defaults to ``'MiniMax-M2.7'``.
-            Other options include ``'MiniMax-M2.7-highspeed'``,
-            ``'MiniMax-M2.5'``, ``'MiniMax-M2.5-highspeed'``.
+        :param str model_name: Model identifier, defaults to ``'MiniMax-M3'``.
+            Other options include ``'MiniMax-M2.7'`` and
+            ``'MiniMax-M2.7-highspeed'``.
         :param dict generation_config: Extra generation parameters forwarded to
             the chat completions API.  Temperature values are automatically
             clamped to the MiniMax-supported range ``(0, 1]``.
