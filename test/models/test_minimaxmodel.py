@@ -14,9 +14,9 @@ class TestMiniMaxModel(unittest.TestCase):
 
     @patch('easyjailbreak.models.openai_model.OpenAI')
     def test_default_init(self, mock_openai_cls):
-        """Default construction uses MiniMax-M2.7 and the MiniMax base URL."""
+        """Default construction uses MiniMax-M3 and the MiniMax base URL."""
         model = MiniMaxModel(api_keys='test-key')
-        self.assertEqual(model.model_name, 'MiniMax-M2.7')
+        self.assertEqual(model.model_name, 'MiniMax-M3')
         mock_openai_cls.assert_called_once_with(
             api_key='test-key',
             base_url='https://api.minimax.io/v1',
