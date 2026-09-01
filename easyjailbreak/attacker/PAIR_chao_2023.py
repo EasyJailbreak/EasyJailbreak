@@ -30,14 +30,14 @@ class PAIR(AttackerBase):
     Example:
         >>> from easyjailbreak.attacker.PAIR_chao_2023 import PAIR
         >>> from easyjailbreak.datasets import JailbreakDataset
-        >>> from easyjailbreak.models.huggingface_model import HuggingfaceModel
+        >>> from easyjailbreak.models.huggingface_model import from_pretrained
         >>> from easyjailbreak.models.openai_model import OpenaiModel
         >>>
         >>> # First, prepare models and datasets.
-        >>> attack_model = HuggingfaceModel(attack_model_path='lmsys/vicuna-13b-v1.5',
-        >>>                                template_name='vicuna_v1.1')
-        >>> target_model = HuggingfaceModel(model_name_or_path='meta-llama/Llama-2-7b-chat-hf',
-        >>>                                 template_name='llama-2')
+        >>> attack_model = from_pretrained(model_name_or_path='lmsys/vicuna-13b-v1.5',
+        >>>                                model_name='vicuna_v1.1')
+        >>> target_model = from_pretrained(model_name_or_path='meta-llama/Llama-2-7b-chat-hf',
+        >>>                                 model_name='llama-2')
         >>> eval_model = OpenaiModel(model_name='gpt-4'
         >>>                          api_keys='input your vaild key here!!!')
         >>> dataset = JailbreakDataset('AdvBench')

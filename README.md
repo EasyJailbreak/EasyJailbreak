@@ -140,10 +140,10 @@ You can load a model in one line of python code.
 
 ```python
 # import model prototype
-from easyjailbreak.models.huggingface_model import HuggingfaceModel
+from easyjailbreak.models.huggingface_model import from_pretrained
 
 # load the target model (but you may use up to 3 models in a attacker, i.e. attack_model, eval_model, target_model)
-target_model = HuggingfaceModel(model_name_or_path='meta-llama/Llama-2-7b-chat-hf',
+target_model = from_pretrained(model_name_or_path='meta-llama/Llama-2-7b-chat-hf',
                                 model_name='llama-2')
 
 # use the target_model to generate response based on any input. Here is an example.
